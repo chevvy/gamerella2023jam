@@ -1,14 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://frkiqbexqugg"]
+[gd_scene load_steps=5 format=3 uid="uid://frkiqbexqugg"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_wcbdu"]
 [ext_resource type="PackedScene" uid="uid://db28i0alooile" path="res://debug/godot_sprite.tscn" id="2_cgo8g"]
+[ext_resource type="PackedScene" uid="uid://voa04nymlp2s" path="res://Drill_Pipe/drill_visual.tscn" id="3_hd4yy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ieuv"]
 size = Vector2(48, 48)
 
-[node name="Player" type="Area2D" node_paths=PackedStringArray("ray")]
+[node name="Player" type="Area2D" node_paths=PackedStringArray("ray", "drill_visual")]
 script = ExtResource("1_wcbdu")
 ray = NodePath("RayCast2D")
+drill_visual = NodePath("Drill_Visual")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" parent="." instance=ExtResource("2_cgo8g")]
@@ -18,3 +20,6 @@ position = Vector2(24, 24)
 shape = SubResource("RectangleShape2D_1ieuv")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
+
+[node name="Drill_Visual" parent="." instance=ExtResource("3_hd4yy")]
+position = Vector2(24, 24)

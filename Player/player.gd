@@ -4,6 +4,7 @@ class_name Player extends Area2D
 @export var speed = 400 # How fast the player will move (pixels/sec).
 var screen_size # Size of the game window.
 @export var ray: RayCast2D
+@export var drill_visual: DrillVisual
 
 var tile_size = 48
 var inputs = {
@@ -27,7 +28,7 @@ func _unhandled_input(event):
 	for dir in inputs.keys():
 		if event.is_action_pressed(dir):
 			move(dir)
-
+			
 
 func move(dir):
 	ray.target_position = inputs[dir] * tile_size
