@@ -8,9 +8,7 @@
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(358, 241)
 
-[node name="Player" parent="." instance=ExtResource("1_nw8ny")]
-position = Vector2(288, 96)
-
 [node name="Terrain" parent="." instance=ExtResource("2_6uawc")]
-show_behind_parent = true
 position = Vector2(193, 192)
+
+[node name="Player" parent="." instance=ExtResource("1_nw8ny")]
