@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5grb7bgj7sbw"
-path="res://.godot/imported/Tile_Set_Debug.png-64605597588096a911e237770e059838.ctex"
+uid="uid://ofegxdidnh3y"
+path="res://.godot/imported/Drill_Pipe_Sprite.png-86a053c27bc575096a4ddab04810f173.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TileSet/Tile_Set_Debug.png"
-dest_files=["res://.godot/imported/Tile_Set_Debug.png-64605597588096a911e237770e059838.ctex"]
+source_file="res://Drill_Pipe/Drill_Pipe_Sprite.png"
+dest_files=["res://.godot/imported/Drill_Pipe_Sprite.png-86a053c27bc575096a4ddab04810f173.ctex"]
 
 [params]
 

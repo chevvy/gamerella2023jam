@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5grb7bgj7sbw"
-path="res://.godot/imported/Tile_Set_Debug.png-64605597588096a911e237770e059838.ctex"
+uid="uid://dcyeiblci6vat"
+path="res://.godot/imported/Crack_Sprite.png-a725551f3ffb690df859ec96083ea943.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TileSet/Tile_Set_Debug.png"
-dest_files=["res://.godot/imported/Tile_Set_Debug.png-64605597588096a911e237770e059838.ctex"]
+source_file="res://TileSet/Crack_Sprite.png"
+dest_files=["res://.godot/imported/Crack_Sprite.png-a725551f3ffb690df859ec96083ea943.ctex"]
 
 [params]
 
