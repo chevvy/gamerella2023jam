@@ -8,9 +8,9 @@ extends Node2D
 
 
 func _ready() -> void:
-#	hit_feeback()
-#	add_crack(3)
-#	print(Vector2.from_angle(deg_to_rad(90)))
+	hit_feeback()
+	add_crack(3)
+	print(Vector2.from_angle(deg_to_rad(90)))
 	pass # Replace with function body.
 
 func _process(delta: float) -> void:

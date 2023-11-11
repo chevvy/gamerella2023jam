@@ -1,4 +1,4 @@
-extends Sprite2D
+class_name DrillVisual extends Sprite2D
 
 @onready var drill_anim = $Drill_Anim
 

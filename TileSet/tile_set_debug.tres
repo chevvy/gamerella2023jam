@@ -1,12 +1,15 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://ksbfd8ojkayv"]
+[gd_resource type="TileSet" load_steps=6 format=3 uid="uid://ksbfd8ojkayv"]
 
-[ext_resource type="Texture2D" uid="uid://bf2le04ubk5kg" path="res://TileSet/Tile_Set_Debug.png" id="1_0fvv7"]
+[ext_resource type="Texture2D" uid="uid://c5grb7bgj7sbw" path="res://TileSet/Tile_Set_Debug.png" id="1_0fvv7"]
+[ext_resource type="Script" path="res://Terrain/terrain_state.gd" id="1_8vkg2"]
+[ext_resource type="PackedScene" uid="uid://bdrtph82cn6uv" path="res://Terrain/base_block.tscn" id="3_ichhk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ajwuj"]
 texture = ExtResource("1_0fvv7")
 texture_region_size = Vector2i(48, 48)
 0:0/0 = 0
 0:0/0/custom_data_0 = 1
+0:0/0/custom_data_1 = ExtResource("1_8vkg2")
 1:0/0 = 0
 1:0/0/custom_data_0 = 1
 2:0/0 = 0
@@ -79,8 +82,15 @@ texture_region_size = Vector2i(48, 48)
 8:9/0 = 0
 9:9/0 = 0
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_ovhas"]
+resource_name = "normal_block"
+scenes/1/scene = ExtResource("3_ichhk")
+
 [resource]
 tile_size = Vector2i(48, 48)
 custom_data_layer_0/name = "health"
 custom_data_layer_0/type = 2
+custom_data_layer_1/name = "state"
+custom_data_layer_1/type = 24
 sources/0 = SubResource("TileSetAtlasSource_ajwuj")
+sources/2 = SubResource("TileSetScenesCollectionSource_ovhas")
