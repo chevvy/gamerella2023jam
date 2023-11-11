@@ -20,6 +20,7 @@ position = Vector2(24, 24)
 shape = SubResource("RectangleShape2D_1ieuv")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(24, 24)
 
 [node name="Drill_Visual" parent="." instance=ExtResource("3_hd4yy")]
 position = Vector2(24, 24)

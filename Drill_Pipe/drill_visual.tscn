@@ -159,14 +159,17 @@ _data = {
 "idle": SubResource("Animation_gslst")
 }
 
-[node name="Drill_Visual" type="Sprite2D"]
+[node name="Drill_Visual" type="Node2D"]
+script = ExtResource("2_hll10")
+
+[node name="Drill_Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_fwbfb")
 hframes = 5
 vframes = 3
 frame = 11
-script = ExtResource("2_hll10")
 
 [node name="Drill_Anim" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Drill_Sprite")
 autoplay = "idle"
 libraries = {
 "": SubResource("AnimationLibrary_53iyi")

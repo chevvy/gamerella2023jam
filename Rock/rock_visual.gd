@@ -1,4 +1,4 @@
-extends Node2D
+class_name RockVisual extends Node2D
 
 @export var vfx_hit : PackedScene
 @export var vfx_destroy : PackedScene
@@ -8,9 +8,13 @@ extends Node2D
 
 
 func _ready() -> void:
-	hit_feeback()
-	add_crack(3)
-	print(Vector2.from_angle(deg_to_rad(90)))
+	if vfx_hit == null :
+		print("VFX MISSING ON ROCK VISUAL")
+	if vfx_destroy == null :
+		print("VFX MISSING ON ROCK VISUAL")
+#	hit_feeback()
+#	add_crack(3)
+#	print(Vector2.from_angle(deg_to_rad(90)))
 	pass # Replace with function body.
 
 func _process(delta: float) -> void:

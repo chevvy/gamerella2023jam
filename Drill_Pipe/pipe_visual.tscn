@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhypf3k31b84e"]
+
+[ext_resource type="Script" path="res://Drill_Pipe/pipe_visual.gd" id="1_y11cp"]
+[ext_resource type="Texture2D" uid="uid://ofegxdidnh3y" path="res://Drill_Pipe/Drill_Pipe_Sprite.png" id="2_3e1sw"]
+
+[node name="Pipe_Visual" type="Node2D"]
+script = ExtResource("1_y11cp")
+
+[node name="Pipe_Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_3e1sw")
+hframes = 5
+vframes = 3
+frame = 5
