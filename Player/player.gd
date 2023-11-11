@@ -6,6 +6,8 @@ class_name Player extends Area2D
 @export var ray: RayCast2D
 @export var drill_visual: DrillVisual
 
+@export var tuyau_scene: PackedScene
+
 var screen_size # Size of the game window.
 
 ## TODO
@@ -33,6 +35,20 @@ var inputs = {
 	"move_down": Vector2.DOWN
 }
 
+var debug_keys = {
+	Vector2.RIGHT: "right",
+	Vector2.UP: "up",
+	Vector2.LEFT: "left",
+	Vector2.DOWN: "down",
+}
+
+var opposed_direction = {
+	Vector2.RIGHT: Vector2.LEFT,
+	Vector2.UP: Vector2.DOWN,
+	Vector2.LEFT: Vector2.RIGHT,
+	Vector2.DOWN: Vector2.UP,
+}
+
 var animByInput = {
 	"move_right": "dig_right",
 	"move_left": "dig_left",
@@ -41,6 +57,7 @@ var animByInput = {
 }
 
 var current_direction: Vector2 = Vector2.DOWN
+var previous_direction: Vector2 = Vector2.DOWN
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -80,12 +97,55 @@ func _handle_dig_action():
 	
 
 func _move_player():
-	position += current_direction * tile_size
+	# generate tunnel
+	var tuyau = tuyau_scene.instantiate()
+	get_tree().root.add_child(tuyau)
+	tuyau.position = Vector2(global_position.x + 24, global_position.y + 24)
+
+	if current_direction != previous_direction:
+		if current_direction == Vector2.DOWN:  
+			if previous_direction == Vector2.LEFT:
+				(tuyau as PipeVisual).spawn_right()
+				tuyau.rotation = (deg_to_rad(180))
+			if previous_direction == Vector2.RIGHT:
+				(tuyau as PipeVisual).spawn_left()
+				tuyau.rotation = (deg_to_rad(180))
+			
+
+		if current_direction == Vector2.LEFT:
+			# inverted because MARC :ANGRY
+			(tuyau as PipeVisual).spawn_right()
+		if current_direction == Vector2.RIGHT:
+			# inverted because MARC :ANGRY
+			(tuyau as PipeVisual).spawn_left()
+		
+		position += current_direction * tile_size
+		previous_direction = current_direction
+		return
+	else:
+		if current_direction == Vector2.DOWN:
+			(tuyau as PipeVisual).spawn_straight()
+
+		if current_direction == Vector2.LEFT || current_direction == Vector2.RIGHT:
+			(tuyau as PipeVisual).spawn_straight()
+			tuyau.rotation = deg_to_rad(90)
+
+		position += current_direction * tile_size
+		previous_direction = current_direction
+		return
+
+	
+
 
 
 
 func set_direction(dir):
+	if inputs[dir] == Vector2.UP:
+		## TODO REMOVE IF WE DO USE UP
+		return
 	current_direction = inputs[dir]
 	drill_visual.dig_direction(animByInput[dir])
+	print("current_dir: " + dir)
+	print("previous dir: " + debug_keys[previous_direction])
 	
 	

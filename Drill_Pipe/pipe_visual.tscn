@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dbary0lqehoar" path="res://Drill_Pipe/Drill_Pipe_Sprite.png" id="2_3e1sw"]
 
 [node name="Pipe_Visual" type="Node2D"]
+position = Vector2(2.08165e-12, 2.08165e-12)
 script = ExtResource("1_y11cp")
 
 [node name="Pipe_Straight_Sprite" type="Sprite2D" parent="."]
