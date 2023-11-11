@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5xq3gokp4uv4"]
+
+[ext_resource type="Material" uid="uid://cldo5jij4764v" path="res://VFX/vfx_rock_hit.tres" id="1_3nymg"]
+
+[node name="VFX_Rock_Hit" type="GPUParticles2D"]
+emitting = false
+amount = 20
+process_material = ExtResource("1_3nymg")
+lifetime = 0.6
+one_shot = true
+explosiveness = 0.72
