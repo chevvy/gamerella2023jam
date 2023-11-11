@@ -6,14 +6,18 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_isqkh"]
 size = Vector2(48, 48)
 
-[node name="BaseBlock" type="Area2D"]
+[node name="BaseBlock" type="Area2D" node_paths=PackedStringArray("collision_shape", "debug_sprite")]
 position = Vector2(2.08165e-12, 2.08165e-12)
 script = ExtResource("1_wct0t")
+enable_debug_visual = true
+collision_shape = NodePath("StaticBody2D")
+debug_sprite = NodePath("DebugSprite")
 
 [node name="AreaCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_isqkh")
 
 [node name="DebugSprite" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(0.35, 0.35)
 texture = ExtResource("2_xmu85")
 offset = Vector2(2.08165e-12, 2.08165e-12)

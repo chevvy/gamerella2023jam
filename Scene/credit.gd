@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 
 
 func _on_button_pressed() -> void:
-	get_tree().queue_free
+	get_tree().quit()
 	pass # Replace with function body.
 
 
