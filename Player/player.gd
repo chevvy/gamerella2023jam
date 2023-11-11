@@ -8,7 +8,7 @@ var screen_size # Size of the game window.
 
 ## TODO
 # liste des blocks: 
-# - block finish line
+# [x] - block finish line 
 # - block indestructibles (mauve)
 # - block de 1 a 4 de vie (jaune, gris ,bleu, rouge)
 # - block d'energy + 1 de vie 
