@@ -1,6 +1,7 @@
-class_name DrillVisual extends Sprite2D
+class_name DrillVisual extends Node2D
 
 @onready var drill_anim = $Drill_Anim
+@onready var drill_sprite =$Drill_Sprite
 
 	
 func dig_up():
