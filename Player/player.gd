@@ -12,8 +12,9 @@ var screen_size # Size of the game window.
 # liste des blocks: 
 # [x] - block finish line 
 # [x] - block indestructibles (mauve)
-# [] - Attack + adjusted player set_direction
-# [] - block de 1 a 4 de vie (jaune, gris ,bleu, rouge)
+# [x] - Attack + adjusted player set_direction
+# [] - move_to for smooth move baby
+# [x] - block de 1 a 4 de vie (jaune, gris ,bleu, rouge)
 # [] - block d'energy + 1 de vie 
 # [] - block de buff augmente de 5 dps
 # [] - block d'invicibilite
@@ -46,12 +47,19 @@ func _ready():
 	if ray == null:
 		printerr("missing raycast ref on player")
 
-func _input(event):
+
+func _unhandled_input(event):
 	if event.is_action_pressed("quit"):
 		get_tree().quit()
 	
 	if event.is_action_pressed("dig"):
 		_handle_dig_action()
+
+	# direction handling
+	for dir in inputs.keys():
+		if event.is_action_pressed(dir):
+			set_direction(dir)
+		
 
 func _handle_dig_action():
 	ray.target_position = current_direction * tile_size
@@ -73,10 +81,6 @@ func _handle_dig_action():
 func _move_player():
 	position += current_direction * tile_size
 
-func _unhandled_input(event):
-	for dir in inputs.keys():
-		if event.is_action_pressed(dir):
-			set_direction(dir)
 
 
 func set_direction(dir):
