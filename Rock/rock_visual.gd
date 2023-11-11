@@ -17,8 +17,6 @@ func _ready() -> void:
 #	print(Vector2.from_angle(deg_to_rad(90)))
 	pass # Replace with function body.
 
-func _process(delta: float) -> void:
-	pass
 
 func hit_feeback(_degree = null):
 	var vfx = vfx_hit.instantiate()

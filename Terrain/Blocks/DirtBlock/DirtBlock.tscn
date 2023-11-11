@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bywruw7mafha7"]
+
+[ext_resource type="Script" path="res://Terrain/Blocks/DirtBlock/DirtBlock.gd" id="1_8e2wv"]
+[ext_resource type="PackedScene" uid="uid://bdrtph82cn6uv" path="res://Terrain/Blocks/BaseBlock/base_block.tscn" id="1_65yqv"]
+
+[sub_resource type="Gradient" id="Gradient_035ff"]
+colors = PackedColorArray(0.32549, 0.254902, 0.164706, 1, 0.391981, 0.166873, 1.14237e-07, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m4cm2"]
+gradient = SubResource("Gradient_035ff")
+width = 48
+height = 48
+
+[node name="DirtBlock" type="Node2D" node_paths=PackedStringArray("base_block")]
+script = ExtResource("1_8e2wv")
+base_block = NodePath("BaseBlock")
+
+[node name="BaseBlock" parent="." instance=ExtResource("1_65yqv")]
+enable_debug_visual = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_m4cm2")
+
+[connection signal="hitReceived" from="BaseBlock" to="." method="_on_base_block_hit_received"]

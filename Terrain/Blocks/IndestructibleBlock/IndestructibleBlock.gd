@@ -7,5 +7,5 @@ func _ready():
 		printerr("missing baseblock ref on Indestructible block")
 
 
-func _on_base_block_hit_received(damageReceived):
+func _on_base_block_hit_received():
 	print("indes block received damage, but not thing shit whit it")
