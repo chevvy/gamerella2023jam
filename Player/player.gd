@@ -8,7 +8,7 @@ var screen_size # Size of the game window.
 
 ## TODO
 # liste des blocks: 
-# - block finish line
+# [x] - block finish line 
 # - block indestructibles (mauve)
 # - block de 1 a 4 de vie (jaune, gris ,bleu, rouge)
 # - block d'energy + 1 de vie 
@@ -57,7 +57,3 @@ func move(dir):
 	if !ray.is_colliding() and !ray.get_collider() is StaticBody2D:
 		position += inputs[dir] * tile_size
 		drill_visual.dig_direction(animByInput[dir])
-	else:
-		var col = ray.get_collider()
-		if col is TerrainState:
-			col.callMeMaybe()
