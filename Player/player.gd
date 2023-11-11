@@ -57,7 +57,3 @@ func move(dir):
 	if !ray.is_colliding() and !ray.get_collider() is StaticBody2D:
 		position += inputs[dir] * tile_size
 		drill_visual.dig_direction(animByInput[dir])
-	else:
-		var col = ray.get_collider()
-		if col is TerrainState:
-			col.callMeMaybe()
