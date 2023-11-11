@@ -34,3 +34,7 @@ func move(dir):
 	ray.force_raycast_update()
 	if !ray.is_colliding():
 		position += inputs[dir] * tile_size
+	else:
+		var col = ray.get_collider()
+		if col is TerrainState:
+			col.callMeMaybe()
