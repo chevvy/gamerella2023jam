@@ -1,8 +1,9 @@
-[gd_resource type="TileSet" load_steps=6 format=3 uid="uid://ksbfd8ojkayv"]
+[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://ksbfd8ojkayv"]
 
 [ext_resource type="Texture2D" uid="uid://c5grb7bgj7sbw" path="res://TileSet/Tile_Set_Debug.png" id="1_0fvv7"]
 [ext_resource type="Script" path="res://Terrain/terrain_state.gd" id="1_8vkg2"]
 [ext_resource type="PackedScene" uid="uid://bdrtph82cn6uv" path="res://Terrain/base_block.tscn" id="3_ichhk"]
+[ext_resource type="PackedScene" uid="uid://cif2sd331mwy8" path="res://Terrain/Blocks/WinBlock.tscn" id="4_a5fll"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ajwuj"]
 texture = ExtResource("1_0fvv7")
@@ -85,6 +86,7 @@ texture_region_size = Vector2i(48, 48)
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_ovhas"]
 resource_name = "normal_block"
 scenes/1/scene = ExtResource("3_ichhk")
+scenes/2/scene = ExtResource("4_a5fll")
 
 [resource]
 tile_size = Vector2i(48, 48)

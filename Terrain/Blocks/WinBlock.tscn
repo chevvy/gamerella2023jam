@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://cif2sd331mwy8"]
+
+[ext_resource type="PackedScene" uid="uid://bdrtph82cn6uv" path="res://Terrain/base_block.tscn" id="1_njxak"]
+[ext_resource type="Script" path="res://Terrain/Blocks/PlayerDetector.gd" id="2_qwoqa"]
+
+[sub_resource type="Gradient" id="Gradient_v1eqs"]
+colors = PackedColorArray(0.830503, 0.287785, 0.307726, 1, 1, 0.549796, 0.294727, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jn0wn"]
+gradient = SubResource("Gradient_v1eqs")
+width = 48
+height = 48
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s4ru2"]
+size = Vector2(48, 48)
+
+[node name="WinBlock" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_jn0wn")
+
+[node name="PlayerDetector" type="Area2D" parent="."]
+script = ExtResource("2_qwoqa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+shape = SubResource("RectangleShape2D_s4ru2")
+
+[node name="BaseBlock" parent="." instance=ExtResource("1_njxak")]
+health = 0
+is_collision_enabled = false
+enable_debug_visual = false
+
+[connection signal="area_entered" from="PlayerDetector" to="PlayerDetector" method="_on_area_entered"]
