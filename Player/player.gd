@@ -62,7 +62,11 @@ func _handle_dig_action():
 		return
 
 	if col is BlockCollider:
-		col.receiveHit(damage)
+		col.receiveHit(damage, current_direction)
+
+		# if block is dead after attack, then we move to the place of block
+		if col.get_health() <= 0:
+			_move_player()
 	
 	
 
