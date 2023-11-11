@@ -15,6 +15,7 @@ var screen_size # Size of the game window.
 # [x] - Attack + adjusted player set_direction
 # [] - move_to for smooth move baby
 # [x] - block de 1 a 4 de vie (jaune, gris ,bleu, rouge)
+# [] - serpent
 # [] - block d'energy + 1 de vie 
 # [] - block de buff augmente de 5 dps
 # [] - block d'invicibilite
