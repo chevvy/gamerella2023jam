@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://bd583nrnbwa0l"]
+
+[ext_resource type="Script" path="res://Rock/rock_visual.gd" id="1_54ugq"]
+[ext_resource type="PackedScene" uid="uid://b5xq3gokp4uv4" path="res://VFX/vfx_rock_hit.tscn" id="2_hqkgk"]
+[ext_resource type="PackedScene" uid="uid://cbjflf5fq8nr7" path="res://VFX/vfx_rock_destroy.tscn" id="3_bjbnx"]
+[ext_resource type="Texture2D" uid="uid://c4prks228rn1x" path="res://TileSet/Tile_Set_Rock.png" id="4_r124i"]
+[ext_resource type="Texture2D" uid="uid://dcyeiblci6vat" path="res://TileSet/Crack_Sprite.png" id="5_p773e"]
+
+[node name="Rock_Visual" type="Node2D"]
+script = ExtResource("1_54ugq")
+vfx_hit = ExtResource("2_hqkgk")
+vfx_destroy = ExtResource("3_bjbnx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Base" type="Sprite2D" parent="."]
+texture = ExtResource("4_r124i")
+hframes = 10
+vframes = 10
+frame = 31
+
+[node name="Crack" type="Sprite2D" parent="Base"]
+texture = ExtResource("5_p773e")
+hframes = 6
+frame = 5
