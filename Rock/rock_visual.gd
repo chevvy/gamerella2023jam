@@ -34,6 +34,7 @@ func _ready() -> void:
 
 
 func destroy_feedback():
+	sfx_explode.pitch_scale = randf_range(0.6,1.2)
 	sfx_explode.play()
 	var vfx = vfx_destroy.instantiate()
 	get_tree().root.add_child(vfx)
@@ -44,6 +45,7 @@ func destroy_feedback():
 
 func hit_block_received(direction: float, should_destroy: bool = false):
 	# ICI MARC
+	sfx_hit.pitch_scale = randf_range(0.6,1.2)
 	sfx_hit.play()
 	hit_feeback(direction)
 	if should_destroy:
