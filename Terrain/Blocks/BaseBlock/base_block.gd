@@ -29,6 +29,7 @@ func _ready():
 
 func hitBlock(damageReceived: int, direction: Vector2 = Vector2.DOWN):
 	hitReceived.emit(damageReceived, direction)
+	EventManager.onBlockHit.emit()
 
 func remove_health(damage: int) -> void:
 	health -= damage
