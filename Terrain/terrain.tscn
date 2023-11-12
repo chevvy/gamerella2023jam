@@ -58,7 +58,7 @@ scale = Vector2(11.6875, 10.0469)
 texture = SubResource("GradientTexture2D_dafi6")
 
 [node name="GOLD" type="Sprite2D" parent="."]
-z_index = 2
+z_index = 5
 position = Vector2(9, 9394)
 scale = Vector2(12.6875, 25.2617)
 texture = SubResource("GradientTexture2D_ch8cg")

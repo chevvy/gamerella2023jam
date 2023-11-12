@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://duejmhek31c7c" path="res://Rock/rock_03_B_visual.tscn" id="5_6r4k6"]
 [ext_resource type="PackedScene" uid="uid://bypp266o7r5ne" path="res://Rock/rock_03_C_visual.tscn" id="6_sk3in"]
 [ext_resource type="PackedScene" uid="uid://cmkdqtb3yu71e" path="res://Rock/rock_03_D_visual.tscn" id="7_ueo1s"]
-[ext_resource type="PackedScene" path="res://Drill_Pipe/hit_sfx.tscn" id="8_6b0e1"]
-[ext_resource type="PackedScene" path="res://Drill_Pipe/explode_sfx.tscn" id="9_da31e"]
+[ext_resource type="PackedScene" uid="uid://bwe5j7n6kgwes" path="res://Drill_Pipe/hit_sfx.tscn" id="8_6b0e1"]
+[ext_resource type="PackedScene" uid="uid://bq60mqo2yki83" path="res://Drill_Pipe/explode_sfx.tscn" id="9_da31e"]
 
 [node name="Rock03" type="Node2D" node_paths=PackedStringArray("list_of_rocks", "destructible_rock")]
 script = ExtResource("1_ib0n0")
