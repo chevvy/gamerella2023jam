@@ -6,6 +6,7 @@ class_name RockVisual extends Node2D
 @onready var sprite = $Base
 @onready var crack = $Base/Crack
 
+var cracked_state = 5
 
 func _ready() -> void:
 	if vfx_hit == null :
@@ -34,11 +35,18 @@ func destroy_feedback():
 	vfx_destroy.emitting = true
 	pass
 
-func add_crack(_integrity = null):
-	if  _integrity == null :
-		crack.frame = 5
-	else :
-		crack.frame = _integrity
+func hit_rock():
+	if cracked_state <= 0:
+		return
+	
+	cracked_state -= 1
+	crack.frame = cracked_state
+
+# func add_crack(_integrity = null):
+# 	if  _integrity == null :
+# 		crack.frame = 5
+# 	else :
+# 		crack.frame = _integrity
 
 func tween_pos(_degree = null):
 	var twe = create_tween()
