@@ -19,6 +19,20 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 
+
+
+func destroy_feedback():
+	vfx_destroy.emitting = true
+	pass
+
+
+func hit_block_received(direction: float):
+	# ICI MARC
+	hit_feeback(direction)
+	hit_rock()
+	pass
+
+
 func hit_feeback(_degree = null):
 	var vfx = vfx_hit.instantiate()
 	add_child(vfx)
@@ -29,11 +43,7 @@ func hit_feeback(_degree = null):
 		tween_pos(_degree)
 	
 	pass
-	
-
-func destroy_feedback():
-	vfx_destroy.emitting = true
-	pass
+		
 
 func hit_rock():
 	if cracked_state <= 0:
@@ -42,11 +52,6 @@ func hit_rock():
 	cracked_state -= 1
 	crack.frame = cracked_state
 
-# func add_crack(_integrity = null):
-# 	if  _integrity == null :
-# 		crack.frame = 5
-# 	else :
-# 		crack.frame = _integrity
 
 func tween_pos(_degree = null):
 	var twe = create_tween()

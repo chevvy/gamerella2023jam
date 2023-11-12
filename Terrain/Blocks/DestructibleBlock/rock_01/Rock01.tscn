@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Terrain/Blocks/DestructibleBlock/rock_01/multi_rock.gd" id="1_7ei6k"]
 [ext_resource type="Script" path="res://Terrain/Blocks/DestructibleBlock/DestructibleBlock.gd" id="2_r1f5u"]
 [ext_resource type="PackedScene" uid="uid://bdrtph82cn6uv" path="res://Terrain/Blocks/BaseBlock/base_block.tscn" id="3_iw5qw"]
-[ext_resource type="PackedScene" uid="uid://cijqcowmfd8ga" path="res://Rock/rock_01_A_visual.tscn" id="4_07oil"]
+[ext_resource type="PackedScene" uid="uid://cijqcowmfd8ga" path="res://Rock/rock_visual.tscn" id="4_07oil"]
 [ext_resource type="PackedScene" uid="uid://bksfk0fscgs44" path="res://Rock/rock_01_B_visual.tscn" id="5_frnca"]
 [ext_resource type="PackedScene" uid="uid://dyrwglwphvkls" path="res://Rock/rock_01_C_visual.tscn" id="6_4wgl3"]
 [ext_resource type="PackedScene" uid="uid://dv4p8jsyk272b" path="res://Rock/rock_01_D_visual.tscn" id="7_x5p14"]

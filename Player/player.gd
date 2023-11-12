@@ -18,7 +18,8 @@ var current_depth := 0
 # [] - move_to for smooth move baby
 # [x] - block de 1 a 4 de vie (jaune, gris ,bleu, rouge)
 # [x] - serpent
-# [] - camera movement
+# [x] - camera movement
+# [] - fix cant go over pipe de drill
 # [x] - block d'energy + 1 de vie 
 # [x] - Block clean final
 # [] - block de buff augmente de 5 dps
