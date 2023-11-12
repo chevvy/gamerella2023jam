@@ -1,4 +1,4 @@
-extends CanvasLayer
+class_name PlayerUI extends CanvasLayer
 
 
 @onready var fader = $Fader

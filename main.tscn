@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://7gabbruw8yl"]
+[gd_scene load_steps=5 format=3 uid="uid://7gabbruw8yl"]
 
 [ext_resource type="Script" path="res://Camera.gd" id="1_4sty7"]
 [ext_resource type="PackedScene" uid="uid://frkiqbexqugg" path="res://Player/player.tscn" id="1_nw8ny"]
 [ext_resource type="PackedScene" uid="uid://dse1wyc8765hw" path="res://Terrain/terrain.tscn" id="2_6uawc"]
 [ext_resource type="Script" path="res://HealthTimer.gd" id="3_afodi"]
-[ext_resource type="PackedScene" uid="uid://dhieb3eb5rpht" path="res://UI/ui.tscn" id="5_0yusb"]
 
 [node name="Main" type="Node2D"]
 
@@ -23,6 +22,8 @@ player_camera = NodePath("../Camera2D")
 autostart = true
 script = ExtResource("3_afodi")
 
-[node name="UI" parent="." instance=ExtResource("5_0yusb")]
+[node name="DamageCooldown" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
 
 [connection signal="timeout" from="HealthTimer" to="HealthTimer" method="_on_timeout"]

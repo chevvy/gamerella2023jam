@@ -15,14 +15,16 @@ var current_depth := 0
 # [x] - block finish line 
 # [x] - block indestructibles (mauve)
 # [x] - Attack + adjusted player set_direction
-# [] - move_to for smooth move baby
-# [] - plug ui
 # [x] - block de 1 a 4 de vie (jaune, gris ,bleu, rouge)
 # [x] - serpent
 # [x] - camera movement
+# [] - plug ui
+# [] - sound handling
 # [] - fix cant go over pipe de drill
+# [] - move_to for smooth move baby
 # [x] - block d'energy + 1 de vie 
 # [x] - Block clean final
+
 # [] - block de buff augmente de 5 dps
 # [] - block d'invicibilite
 # [] - block de gold (qui est son propre metric)
