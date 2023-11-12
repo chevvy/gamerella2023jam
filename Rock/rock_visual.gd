@@ -12,6 +12,7 @@ class_name RockVisual extends Node2D
 
 var cracked_state = 5
 
+
 func _ready() -> void:
 	if sfx_hit == null :
 		print("SFX MISSING ON ROCK VISUAL")
@@ -25,8 +26,7 @@ func _ready() -> void:
 	if vfx_destroy == null :
 		print("VFX MISSING ON ROCK VISUAL")
 		return
-	
-	
+
 #	hit_feeback()
 #	add_crack(3)
 #	print(Vector2.from_angle(deg_to_rad(90)))
@@ -42,10 +42,13 @@ func destroy_feedback():
 	pass
 
 
-func hit_block_received(direction: float):
+func hit_block_received(direction: float, should_destroy: bool = false):
 	# ICI MARC
 	sfx_hit.play()
 	hit_feeback(direction)
+	if should_destroy:
+		destroy_feedback()
+		return
 	hit_rock()
 	pass
 

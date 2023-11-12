@@ -21,6 +21,7 @@ window/stretch/mode="canvas_items"
 
 LevelManager="*res://level_manager.gd"
 PlayerState="*res://Player/player_state.gd"
+EventManager="*res://Managers/EventManager.gd"
 
 [display]
 
