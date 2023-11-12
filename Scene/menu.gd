@@ -32,7 +32,7 @@ func _ready() -> void:
 	fade.show()
 	if skip_intro == false :
 		twe.tween_callback(fade_in)
-		twe.tween_interval(1.5)
+		twe.tween_interval(1)
 		twe.tween_callback(page_01_show)
 
 	
@@ -52,14 +52,14 @@ func change_page(next_page):
 		1 :
 			var twe = create_tween()
 			twe.tween_callback(page_01_hide)
-			twe.tween_interval(1)
+			twe.tween_interval(0.5)
 			twe.tween_callback(page_02_show)
 			current_page = 2
 			
 		2 :
 			var twe = create_tween()
 			twe.tween_callback(page_02_hide)
-			twe.tween_interval(1)
+			twe.tween_interval(0.5)
 			twe.tween_callback(page_03_show)
 			current_page = 3
 		3 :
