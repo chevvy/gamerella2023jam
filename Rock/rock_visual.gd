@@ -73,7 +73,5 @@ func hit_rock():
 
 func tween_pos(_degree = null):
 	var twe = create_tween()
-#	var dir = angle
-	print()
 	twe.tween_property(sprite,"position",Vector2.from_angle(deg_to_rad(_degree))*randi_range(5,20),0.0) 
 	twe.tween_property(sprite,"position",Vector2(0,0),0.05) 
