@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://by4n8ewq147lt"]
+[gd_scene load_steps=8 format=3 uid="uid://by4n8ewq147lt"]
 
 [ext_resource type="PackedScene" uid="uid://bdrtph82cn6uv" path="res://Terrain/Blocks/BaseBlock/base_block.tscn" id="1_hqs47"]
 [ext_resource type="Script" path="res://Terrain/Blocks/EnergyBlock/EnergyBlock.gd" id="1_xhfp6"]
+[ext_resource type="PackedScene" uid="uid://dm48cve3luja4" path="res://Terrain/Blocks/EnergyBlock/energy_block_visual.tscn" id="3_s2wo1"]
+[ext_resource type="PackedScene" path="res://Drill_Pipe/hit_sfx.tscn" id="4_ku0wq"]
+[ext_resource type="PackedScene" path="res://Drill_Pipe/explode_sfx.tscn" id="5_i48f1"]
 
 [sub_resource type="Gradient" id="Gradient_v88yl"]
 colors = PackedColorArray(0, 0.960773, 0, 1, 0.246634, 0.684832, 0.156774, 1)
@@ -19,6 +22,15 @@ health_point_for_player = 20
 enable_debug_visual = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture = SubResource("GradientTexture2D_xdf28")
+
+[node name="Rock_Visual" parent="." node_paths=PackedStringArray("sfx_hit", "sfx_explode") instance=ExtResource("3_s2wo1")]
+sfx_hit = NodePath("../hit_sfx")
+sfx_explode = NodePath("../explode_sfx")
+
+[node name="hit_sfx" parent="." instance=ExtResource("4_ku0wq")]
+
+[node name="explode_sfx" parent="." instance=ExtResource("5_i48f1")]
 
 [connection signal="hitReceived" from="BaseBlock" to="." method="_on_base_block_hit_received"]
