@@ -16,6 +16,7 @@ var current_depth := 0
 # [x] - block indestructibles (mauve)
 # [x] - Attack + adjusted player set_direction
 # [] - move_to for smooth move baby
+# [] - plug ui
 # [x] - block de 1 a 4 de vie (jaune, gris ,bleu, rouge)
 # [x] - serpent
 # [x] - camera movement
@@ -84,6 +85,9 @@ func _ready():
 
 
 func _unhandled_input(event):
+	if not PlayerState.can_player_move():
+		return
+ 
 	if event.is_action_pressed("quit"):
 		get_tree().quit()
 	

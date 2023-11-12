@@ -1,25 +1,32 @@
 extends Node
 
 
-var health = 100
+var _health = 100
+var _can_player_move = false
 # Called when the node enters the scene tree for the first time.
 
 func remove_health(damage: int) -> void:
-	if health - damage < 0:
-		health = 0
+	if _health - damage < 0:
+		_health = 0
 		# print("health is zero")
 		return
 	
-	health -= damage
+		_health -= damage
 	# print("removing health: ")
 	#print(health)
 
 func add_health(health_point: int) -> void:
-	if health + health_point > 100:
-		health = 100
+	if _health + health_point > 100:
+		_health = 100
 		# print("health is 100")
 		return
 	
-	health += health_point
+		_health += health_point
 	# print("adding health: ")
 	#print(health)
+
+func can_player_move() -> bool:
+	return _can_player_move
+
+func set_can_player_move(can_move: bool) -> void:
+	_can_player_move = can_move
