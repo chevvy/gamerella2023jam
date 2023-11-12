@@ -110,8 +110,15 @@ func _ready():
 	if ray == null:
 		printerr("missing raycast ref on player")
 
+	PlayerState.on_player_timeout_event.connect(on_player_timeout)
 
-func _unhandled_input(event):
+
+func on_player_timeout():
+	## todo delete pipe queue
+	#previous_pipe_reference.delete_whole_pipe_queue()
+	pass
+
+func _input(event):
 	if not PlayerState.can_player_move() and not is_debug:
 		return
  
@@ -158,6 +165,7 @@ func _undo_move():
 	previous_pipe_reference.delete_single_pipe()
 	previous_pipe_reference = previous_previous_pipe
 	revert_to_latest_direction()
+	PlayerState.update_depth(position.y)
 	
 
 func _move_player():
@@ -214,6 +222,8 @@ func _move_player():
 	position += current_direction * tile_size
 	player_camera.move_camera(previous_position, position)
 	previous_direction = current_direction
+
+	PlayerState.update_depth(position.y)
 	
 
 

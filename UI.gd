@@ -16,7 +16,9 @@ class_name PlayerUI extends CanvasLayer
 # update_bar() - pour update le depth
 # time_out() - pour lancer le visuel de fin
 
-
+func hide_self():
+	ui.hide()
+	
 func _ready() -> void:
 	var twe = create_tween()
 	depth_score.text = str(0)
