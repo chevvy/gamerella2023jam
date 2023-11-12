@@ -7,19 +7,19 @@ var health = 100
 func remove_health(damage: int) -> void:
 	if health - damage < 0:
 		health = 0
-		print("health is zero")
+		# print("health is zero")
 		return
 	
 	health -= damage
-	print("removing health: ")
-	print(health)
+	# print("removing health: ")
+	#print(health)
 
 func add_health(health_point: int) -> void:
 	if health + health_point > 100:
 		health = 100
-		print("health is 100")
+		# print("health is 100")
 		return
 	
 	health += health_point
-	print("adding health: ")
-	print(health)
+	# print("adding health: ")
+	#print(health)
