@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=11 format=3 uid="uid://ksbfd8ojkayv"]
+[gd_resource type="TileSet" load_steps=12 format=3 uid="uid://ksbfd8ojkayv"]
 
 [ext_resource type="Texture2D" uid="uid://c4prks228rn1x" path="res://TileSet/Tile_Set_Rock.png" id="1_1prsi"]
 [ext_resource type="PackedScene" uid="uid://bdrtph82cn6uv" path="res://Terrain/Blocks/BaseBlock/base_block.tscn" id="3_ichhk"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b8cap205ptf1y" path="res://Terrain/Blocks/DestructibleBlock/DestructibleBlock.tscn" id="6_uiae5"]
 [ext_resource type="PackedScene" uid="uid://by4n8ewq147lt" path="res://Terrain/Blocks/EnergyBlock/EnergyBlock.tscn" id="7_6d4h8"]
 [ext_resource type="PackedScene" uid="uid://b53xki3s3sk1d" path="res://Terrain/Blocks/DestructibleBlock/rock_01/Rock01.tscn" id="8_khcly"]
+[ext_resource type="PackedScene" uid="uid://c68jkaciqhoax" path="res://Terrain/Blocks/DestructibleBlock/rock_01/Rock02.tscn" id="9_fitq2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ajwuj"]
 texture = ExtResource("1_1prsi")
@@ -95,6 +96,7 @@ scenes/4/scene = ExtResource("5_t0375")
 scenes/5/scene = ExtResource("6_uiae5")
 scenes/6/scene = ExtResource("7_6d4h8")
 scenes/7/scene = ExtResource("8_khcly")
+scenes/8/scene = ExtResource("9_fitq2")
 
 [resource]
 tile_size = Vector2i(48, 48)

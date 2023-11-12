@@ -23,7 +23,6 @@ health = 2
 enable_debug_visual = false
 
 [node name="Rock_Visual" parent="." instance=ExtResource("4_07oil")]
-visible = false
 
 [node name="Rock_Visual2" parent="." instance=ExtResource("5_frnca")]
 visible = false
