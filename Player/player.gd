@@ -171,10 +171,20 @@ func _move_player():
 	else:
 		if current_direction == Vector2.DOWN:
 			(tuyau.pipe_visual as PipeVisual).spawn_straight()
+			# we change the body direction straight
+			drill_visual.move_down()
 
 		if current_direction == Vector2.LEFT || current_direction == Vector2.RIGHT:
 			(tuyau.pipe_visual as PipeVisual).spawn_straight()
 			tuyau.rotation = deg_to_rad(90)
+		
+		
+	# handling body direction when we turn direction
+	if current_direction == Vector2.LEFT:
+		drill_visual.move_left()
+	
+	if current_direction == Vector2.RIGHT:
+		drill_visual.move_right()
 
 	previous_position = position
 	position += current_direction * tile_size
@@ -189,6 +199,13 @@ func set_direction(dir):
 		return
 	current_direction = inputs[dir]
 	var anim_direction = animByInput[dir]
+	if previous_direction == Vector2.LEFT:
+		drill_visual.move_dig_left()
+		return
+	if previous_direction == Vector2.RIGHT:
+		drill_visual.move_dig_right()
+		return
+	
 	drill_visual.dig_direction(anim_direction)
 	
 	
