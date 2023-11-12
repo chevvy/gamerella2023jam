@@ -27,3 +27,8 @@ func move_camera_up():
 
 func move_camera_down():
 	position += Vector2(0, 48)
+	
+func camera_shake():
+	var twe = create_tween()
+	twe.tween_property(self,"zoom",Vector2(randf_range(1.02,1.1),randf_range(1.02,1.1)),0.2)
+	twe.tween_property(self,"zoom",Vector2(1,1),0.1)

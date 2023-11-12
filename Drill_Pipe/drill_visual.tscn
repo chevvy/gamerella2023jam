@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://voa04nymlp2s"]
+[gd_scene load_steps=10 format=3 uid="uid://voa04nymlp2s"]
 
 [ext_resource type="Texture2D" uid="uid://dbary0lqehoar" path="res://Drill_Pipe/Drill_Pipe_Sprite.png" id="1_fwbfb"]
 [ext_resource type="Script" path="res://Drill_Pipe/drill_visual.gd" id="2_hll10"]
@@ -16,6 +16,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_bgo4x"]
@@ -58,6 +70,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, -5), Vector2(0, 5), Vector2(0, 0)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.133333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1.95833), Vector2(1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_fukac"]
 resource_name = "dig_left"
@@ -98,6 +122,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(-12, 0), Vector2(-2, 0), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.133333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1.9), Vector2(1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_r655o"]
@@ -140,6 +176,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(0, 0), Vector2(14, 0), Vector2(-3, 0), Vector2(0, 0)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0999999),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1.9), Vector2(1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_gslst"]
 resource_name = "idle"
@@ -156,9 +204,27 @@ tracks/0/keys = {
 "values": [1]
 }
 
+[sub_resource type="Animation" id="Animation_n0yau"]
+resource_name = "dig"
+length = 0.200003
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.1, 0.133333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.704, 1.9), Vector2(1.625, 0.862775), Vector2(1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_53iyi"]
 _data = {
 "RESET": SubResource("Animation_fb5r2"),
+"dig": SubResource("Animation_n0yau"),
 "dig_down": SubResource("Animation_bgo4x"),
 "dig_left": SubResource("Animation_fukac"),
 "dig_right": SubResource("Animation_r655o"),
@@ -175,7 +241,7 @@ hframes = 5
 vframes = 3
 
 [node name="Drill_Sprite" type="Sprite2D" parent="."]
-position = Vector2(0, -5)
+position = Vector2(0, 7.77634)
 texture = ExtResource("1_fwbfb")
 offset = Vector2(0, 10)
 hframes = 5
