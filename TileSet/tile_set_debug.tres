@@ -1,10 +1,11 @@
-[gd_resource type="TileSet" load_steps=14 format=3 uid="uid://ksbfd8ojkayv"]
+[gd_resource type="TileSet" load_steps=15 format=3 uid="uid://ksbfd8ojkayv"]
 
 [ext_resource type="Texture2D" uid="uid://c4prks228rn1x" path="res://TileSet/Tile_Set_Rock.png" id="1_1prsi"]
 [ext_resource type="PackedScene" uid="uid://bdrtph82cn6uv" path="res://Terrain/Blocks/BaseBlock/base_block.tscn" id="3_ichhk"]
 [ext_resource type="PackedScene" uid="uid://bighrhqoiqnx2" path="res://Terrain/Blocks/DestructibleBlock/rock_01/Rock04.tscn" id="3_qktja"]
 [ext_resource type="PackedScene" uid="uid://10gyh47ncgms" path="res://Terrain/Blocks/IndestructibleBlock/IndestructibleBlock.tscn" id="4_5wyi7"]
 [ext_resource type="PackedScene" uid="uid://cif2sd331mwy8" path="res://Terrain/Blocks/WinBlock/WinBlock.tscn" id="4_a5fll"]
+[ext_resource type="PackedScene" uid="uid://dj2lr8vf3ceby" path="res://Terrain/Blocks/DestructibleBlock/rock_01/Rock05.tscn" id="4_x24vr"]
 [ext_resource type="PackedScene" uid="uid://bywruw7mafha7" path="res://Terrain/Blocks/DirtBlock/DirtBlock.tscn" id="5_t0375"]
 [ext_resource type="PackedScene" uid="uid://b8cap205ptf1y" path="res://Terrain/Blocks/DestructibleBlock/DestructibleBlock.tscn" id="6_uiae5"]
 [ext_resource type="PackedScene" uid="uid://by4n8ewq147lt" path="res://Terrain/Blocks/EnergyBlock/EnergyBlock.tscn" id="7_6d4h8"]
@@ -101,6 +102,7 @@ scenes/7/scene = ExtResource("8_khcly")
 scenes/8/scene = ExtResource("9_fitq2")
 scenes/9/scene = ExtResource("10_vy0n2")
 scenes/11/scene = ExtResource("3_qktja")
+scenes/12/scene = ExtResource("4_x24vr")
 
 [resource]
 tile_size = Vector2i(48, 48)
