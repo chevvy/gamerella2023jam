@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bq60mqo2yki83"]
+
+[ext_resource type="AudioStream" uid="uid://dbow0gv7vkm7m" path="res://Drill_Pipe/destroy.wav" id="1_0rfeo"]
+
+[node name="explode_sfx" type="AudioStreamPlayer"]
+stream = ExtResource("1_0rfeo")

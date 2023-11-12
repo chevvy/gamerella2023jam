@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwe5j7n6kgwes"]
+
+[ext_resource type="AudioStream" uid="uid://w15dxgvghpas" path="res://Drill_Pipe/dig.wav" id="1_7i4ti"]
+
+[node name="hit_sfx" type="AudioStreamPlayer"]
+stream = ExtResource("1_7i4ti")
