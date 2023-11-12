@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cg0rt8lfe0exk"]
+[gd_scene load_steps=9 format=3 uid="uid://dt340w5nba1i1"]
 
 [ext_resource type="Texture2D" uid="uid://bdewolfk3llu" path="res://VFX/star_06.png" id="1_ni450"]
 
@@ -49,4 +49,5 @@ amount = 100
 process_material = SubResource("ParticleProcessMaterial_p20fj")
 texture = ExtResource("1_ni450")
 lifetime = 0.4
+one_shot = true
 explosiveness = 0.72
