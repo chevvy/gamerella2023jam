@@ -114,12 +114,13 @@ func _undo_move():
 		return
 		
 	var previous_previous_pipe = previous_pipe_reference.previous_pipe
+	position =previous_pipe_reference.get_local_player_pos()
 	previous_pipe_reference.delete_single_pipe()
 	previous_pipe_reference = previous_previous_pipe
 	drill_visual.dig_direction(previous_animation_state)
 	## TODO set on pipe the direction so we can  go to it and change orientation
 	## of anim
-	position -= current_direction * tile_size
+	#position -= current_direction * tile_size
 	
 
 func _move_player():
@@ -128,6 +129,8 @@ func _move_player():
 	# TODO handle previous state altogheter ? animation direction included
 	if previous_pipe_reference != null:
 		tuyau.set_previous_pipe(previous_pipe_reference)
+		
+	tuyau.set_local_player_position(position)	
 	previous_pipe_reference = tuyau
 	previous_animation_state = animByVector[current_direction]
 	get_tree().root.add_child(tuyau)
