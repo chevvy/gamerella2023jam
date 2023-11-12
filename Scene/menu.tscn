@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ciolx82srycfl"]
+[gd_scene load_steps=11 format=3 uid="uid://ciolx82srycfl"]
 
 [ext_resource type="Script" path="res://Scene/menu.gd" id="1_sivgq"]
 [ext_resource type="Texture2D" uid="uid://d2ttvvn0im15o" path="res://Menu/Title_BG.png" id="2_fambk"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://c473jgh1xe1mb" path="res://Menu/Title_01.png" id="4_o8sdy"]
 [ext_resource type="Texture2D" uid="uid://dn8j8gkh6bo1x" path="res://Menu/Title_Note_01.png" id="5_ph415"]
 [ext_resource type="Texture2D" uid="uid://cyippe2w2714j" path="res://Menu/Title_Note_02.png" id="6_s5wpv"]
+[ext_resource type="AudioStream" uid="uid://q73b4qxwqhgr" path="res://Music/MENU_MUSIC.wav" id="7_36ug8"]
+[ext_resource type="AudioStream" uid="uid://nln1be3gjwuh" path="res://Music/click.wav" id="8_p8b3e"]
 
 [sub_resource type="Gradient" id="Gradient_7xsy0"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
@@ -189,6 +191,16 @@ offset_bottom = 455.0
 text = "DEBUG CREDIT"
 
 [node name="Animator" type="AnimationPlayer" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_36ug8")
+volume_db = -7.428
+autoplay = true
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_p8b3e")
+volume_db = 24.0
+max_polyphony = 2
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

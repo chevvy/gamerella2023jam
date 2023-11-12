@@ -3,6 +3,7 @@
 [ext_resource type="Material" uid="uid://cdg45xbyhi1nn" path="res://VFX/vfx_rock_destroy.tres" id="1_wijs7"]
 
 [node name="VFX_Rock_Destroy" type="GPUParticles2D"]
+z_index = 4
 emitting = false
 amount = 100
 process_material = ExtResource("1_wijs7")

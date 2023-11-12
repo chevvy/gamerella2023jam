@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cbjflf5fq8nr7" path="res://VFX/vfx_rock_destroy.tscn" id="3_vkrjl"]
 [ext_resource type="Texture2D" uid="uid://c4prks228rn1x" path="res://TileSet/Tile_Set_Rock.png" id="4_p01p0"]
 [ext_resource type="Texture2D" uid="uid://dcyeiblci6vat" path="res://TileSet/Crack_Sprite.png" id="5_a8t0v"]
-[ext_resource type="PackedScene" path="res://VFX/vfx_sparkle.tscn" id="6_w3al0"]
+[ext_resource type="PackedScene" uid="uid://b8d4y5dleowhd" path="res://VFX/vfx_sparkle.tscn" id="6_w3al0"]
 
 [node name="Rock_Visual" type="Node2D"]
 script = ExtResource("1_edf1d")
