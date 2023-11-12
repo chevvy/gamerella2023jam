@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=3 uid="uid://u7tg1xa7onho"]
+
+[ext_resource type="Script" path="res://Terrain/Blocks/DestructibleBlock/rock_01/multi_rock.gd" id="1_ib0n0"]
+[ext_resource type="Script" path="res://Terrain/Blocks/DestructibleBlock/DestructibleBlock.gd" id="2_w0u70"]
+[ext_resource type="PackedScene" uid="uid://bdrtph82cn6uv" path="res://Terrain/Blocks/BaseBlock/base_block.tscn" id="3_3i3pb"]
+[ext_resource type="PackedScene" uid="uid://ddj0ayhqildxk" path="res://Rock/rock_03_A_visual.tscn" id="4_em7mb"]
+[ext_resource type="PackedScene" uid="uid://duejmhek31c7c" path="res://Rock/rock_03_B_visual.tscn" id="5_6r4k6"]
+[ext_resource type="PackedScene" uid="uid://bypp266o7r5ne" path="res://Rock/rock_03_C_visual.tscn" id="6_sk3in"]
+[ext_resource type="PackedScene" uid="uid://cmkdqtb3yu71e" path="res://Rock/rock_03_D_visual.tscn" id="7_ueo1s"]
+
+[node name="Rock03" type="Node2D" node_paths=PackedStringArray("list_of_rocks", "destructible_rock")]
+script = ExtResource("1_ib0n0")
+list_of_rocks = [NodePath("Rock_Visual"), NodePath("Rock_Visual2"), NodePath("Rock_Visual3"), NodePath("Rock_Visual4")]
+destructible_rock = NodePath("DestructibleBlock")
+
+[node name="DestructibleBlock" type="Node2D" parent="." node_paths=PackedStringArray("base_block", "rock_visual")]
+script = ExtResource("2_w0u70")
+base_block = NodePath("../BaseBlock")
+rock_visual = NodePath("../Rock_Visual")
+
+[node name="BaseBlock" parent="." instance=ExtResource("3_3i3pb")]
+health = 3
+enable_debug_visual = false
+
+[node name="Rock_Visual" parent="." instance=ExtResource("4_em7mb")]
+
+[node name="Rock_Visual2" parent="." instance=ExtResource("5_6r4k6")]
+visible = false
+
+[node name="Rock_Visual3" parent="." instance=ExtResource("6_sk3in")]
+visible = false
+
+[node name="Rock_Visual4" parent="." instance=ExtResource("7_ueo1s")]
+visible = false
+
+[connection signal="onDestroy" from="DestructibleBlock" to="." method="_on_destructible_block_on_destroy"]
+[connection signal="hitReceived" from="BaseBlock" to="DestructibleBlock" method="_on_base_block_hit_received"]
