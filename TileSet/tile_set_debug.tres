@@ -1,6 +1,7 @@
-[gd_resource type="TileSet" load_steps=15 format=3 uid="uid://ksbfd8ojkayv"]
+[gd_resource type="TileSet" load_steps=18 format=3 uid="uid://ksbfd8ojkayv"]
 
 [ext_resource type="Texture2D" uid="uid://c4prks228rn1x" path="res://TileSet/Tile_Set_Rock.png" id="1_1prsi"]
+[ext_resource type="Texture2D" uid="uid://dbary0lqehoar" path="res://Drill_Pipe/Drill_Pipe_Sprite.png" id="2_me72u"]
 [ext_resource type="PackedScene" uid="uid://bdrtph82cn6uv" path="res://Terrain/Blocks/BaseBlock/base_block.tscn" id="3_ichhk"]
 [ext_resource type="PackedScene" uid="uid://bighrhqoiqnx2" path="res://Terrain/Blocks/DestructibleBlock/rock_01/Rock04.tscn" id="3_qktja"]
 [ext_resource type="PackedScene" uid="uid://10gyh47ncgms" path="res://Terrain/Blocks/IndestructibleBlock/IndestructibleBlock.tscn" id="4_5wyi7"]
@@ -12,6 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://b53xki3s3sk1d" path="res://Terrain/Blocks/DestructibleBlock/rock_01/Rock01.tscn" id="8_khcly"]
 [ext_resource type="PackedScene" uid="uid://c68jkaciqhoax" path="res://Terrain/Blocks/DestructibleBlock/rock_01/Rock02.tscn" id="9_fitq2"]
 [ext_resource type="PackedScene" uid="uid://u7tg1xa7onho" path="res://Terrain/Blocks/DestructibleBlock/rock_01/Rock03.tscn" id="10_vy0n2"]
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_rxvfi"]
+tile_data = PackedInt32Array(0, 0, 0, 65536, 196608, 0, 131072, 131072, 0, 196608, 65536, 0, 1, 65536, 0, 65537, 0, 0, 131073, 196608, 0, 196609, 131072, 0, 2, 131072, 0, 65538, 65536, 0, 131074, 0, 0, 196610, 196608, 0, 3, 196608, 0, 65539, 131072, 0, 131075, 65536, 0, 196611, 0, 0, 4, 0, 0, 65540, 196608, 0, 131076, 131072, 0, 196612, 65536, 0, 5, 65536, 0, 65541, 0, 0, 131077, 196608, 0, 196613, 131072, 0, 6, 131072, 0, 65542, 65536, 0, 131078, 0, 0, 196614, 196608, 0, 7, 196608, 0, 65543, 131072, 0, 131079, 65536, 0, 196615, 0, 0, 8, 0, 0, 65544, 196608, 0, 131080, 131072, 0, 196616, 65536, 0, 9, 65536, 0, 65545, 0, 0, 131081, 196608, 0, 196617, 131072, 0, 10, 131072, 0, 65546, 65536, 0, 131082, 0, 0, 196618, 196608, 0, 11, 196608, 0, 65547, 131072, 0, 131083, 65536, 0, 196619, 0, 0)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ajwuj"]
 texture = ExtResource("1_1prsi")
@@ -90,6 +94,17 @@ texture_region_size = Vector2i(48, 48)
 8:9/0 = 0
 9:9/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mrxhh"]
+texture = ExtResource("2_me72u")
+texture_region_size = Vector2i(48, 48)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_ovhas"]
 resource_name = "normal_block"
 scenes/1/scene = ExtResource("3_ichhk")
@@ -110,3 +125,5 @@ custom_data_layer_0/name = "health"
 custom_data_layer_0/type = 2
 sources/0 = SubResource("TileSetAtlasSource_ajwuj")
 sources/2 = SubResource("TileSetScenesCollectionSource_ovhas")
+sources/1 = SubResource("TileSetAtlasSource_mrxhh")
+pattern_0 = SubResource("TileMapPattern_rxvfi")
