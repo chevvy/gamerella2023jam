@@ -6,7 +6,8 @@ func _on_button_pressed() -> void:
 
 
 func _on_button_2_pressed() -> void:
-	LevelManager.load_main()
+	get_tree().quit()
+	#LevelManager.load_main()
 
 
 func _process(delta: float) -> void:
@@ -14,7 +15,8 @@ func _process(delta: float) -> void:
 		get_tree().quit()
 	
 	if Input.is_action_just_pressed("anything"):
-		LevelManager.load_menu()
+		get_tree().quit()
+		#LevelManager.load_menu()
 	
 	
 		

@@ -16,7 +16,7 @@ func delete_single_pipe():
 func delete_whole_pipe_queue():
 	if previous_pipe == null:
 		return
-	previous_pipe.queue_free()
+	previous_pipe.delete_whole_pipe_queue()
 	queue_free()
 
 func set_local_player_position(pos: Vector2):

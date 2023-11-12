@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://by4n8ewq147lt"]
+[gd_scene load_steps=11 format=3 uid="uid://by4n8ewq147lt"]
 
 [ext_resource type="PackedScene" uid="uid://bdrtph82cn6uv" path="res://Terrain/Blocks/BaseBlock/base_block.tscn" id="1_hqs47"]
 [ext_resource type="Script" path="res://Terrain/Blocks/EnergyBlock/EnergyBlock.gd" id="1_xhfp6"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" path="res://Drill_Pipe/hit_sfx.tscn" id="4_ku0wq"]
 [ext_resource type="PackedScene" uid="uid://dt340w5nba1i1" path="res://VFX/vfx_energy_took.tscn" id="4_plskc"]
 [ext_resource type="PackedScene" path="res://Drill_Pipe/explode_sfx.tscn" id="5_i48f1"]
+[ext_resource type="AudioStream" uid="uid://0lgrsjx068al" path="res://Music/energy.wav" id="6_s2wpa"]
 [ext_resource type="PackedScene" uid="uid://caety7xdb1kxr" path="res://Terrain/Blocks/DestructibleBlock/destroy_timer.tscn" id="7_w11cx"]
 
 [sub_resource type="Gradient" id="Gradient_v88yl"]
@@ -36,8 +37,10 @@ sfx_hit = NodePath("../hit_sfx")
 sfx_explode = NodePath("../explode_sfx")
 
 [node name="hit_sfx" parent="." instance=ExtResource("4_ku0wq")]
+stream = ExtResource("6_s2wpa")
 
 [node name="explode_sfx" parent="." instance=ExtResource("5_i48f1")]
+stream = ExtResource("6_s2wpa")
 
 [node name="DestroyTimer" parent="." instance=ExtResource("7_w11cx")]
 

@@ -8,6 +8,9 @@ var player_ui: PlayerUI
 var UI_SCENE: PackedScene = preload("res://UI/ui.tscn")
 # Called when the node enters the scene tree for the first time.
 var can_be_damaged = true
+
+var has_timedout = false
+signal on_player_timeout_event
 	
 func on_level_start():
 	player_ui = UI_SCENE.instantiate()
@@ -47,15 +50,32 @@ func add_health(health_point: int) -> void:
 func on_heal(health_point: int):
 	can_be_damaged = false
 	update_health(health_point)
-	await create_tween().tween_interval(3).finished
+	await create_tween().tween_interval(1.5).finished
 	enable_damage()
 
 func update_health(new_health_value: int):
 	_health = new_health_value
 	player_ui.update_bar(_health)
+	if _health <= 0 and not has_timedout:
+		on_timeout()
 
 func can_player_move() -> bool:
 	return _can_player_move
 
 func set_can_player_move(can_move: bool) -> void:
 	_can_player_move = can_move
+
+func on_timeout():
+	if player_ui.progress_bar.value == 0:
+		has_timedout = true
+		await create_tween().tween_interval(3).finished
+		on_player_timeout_event.emit()
+		player_ui.time_out()
+		await create_tween().tween_interval(3).finished
+		player_ui.hide_self()
+		LevelManager.load_credit()
+
+func update_depth(player_y_pos: float):
+	# -6 because of the initial height of the player lol
+	var depth = floor(player_y_pos / 48) - 6
+	player_ui.update_depth(depth)
