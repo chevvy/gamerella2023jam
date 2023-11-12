@@ -10,3 +10,17 @@ func dig_direction(anim_name: String):
 	
 	drill_anim.play(anim_name)
 
+func move_right():
+	drill_anim.play("move_right")
+
+func move_left():
+	drill_anim.play("move_left")
+
+func move_down():
+	drill_anim.play("dig_down")
+
+func move_dig_left():
+	drill_anim.play("move_dig_left")
+
+func move_dig_right():
+	drill_anim.play("move_dig_right")
