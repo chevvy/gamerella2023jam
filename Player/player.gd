@@ -1,6 +1,5 @@
 class_name Player extends Area2D
 
-@export var tile_map: TileMap
 @export var speed = 400 # How fast the player will set_direction (pixels/sec).
 @export var damage = 1
 @export var ray: RayCast2D
@@ -9,7 +8,8 @@ class_name Player extends Area2D
 @export var tuyau_scene: PackedScene
 
 var screen_size # Size of the game window.
-
+# the dept of the player (1 = 48px)
+var current_depth := 0
 ## TODO
 # liste des blocks: 
 # [x] - block finish line 
@@ -20,7 +20,7 @@ var screen_size # Size of the game window.
 # [x] - serpent
 # [] - camera movement
 # [x] - block d'energy + 1 de vie 
-# [] - Block clean final
+# [x] - Block clean final
 # [] - block de buff augmente de 5 dps
 # [] - block d'invicibilite
 # [] - block de gold (qui est son propre metric)
@@ -68,8 +68,12 @@ var animByVector = {
 var current_direction: Vector2 = Vector2.DOWN
 var previous_direction: Vector2 = Vector2.DOWN
 
+var previous_position = position
+
 var previous_pipe_reference = null
 var previous_animation_state = null
+
+@export var player_camera: PlayerCamera
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -108,20 +112,23 @@ func _handle_dig_action():
 		# if block is dead after attack, then we move to the place of block
 		if col.get_health() <= 0:
 			_move_player()
-	
+
 
 func _undo_move():
 	if previous_pipe_reference == null:
 		return
 		
 	var previous_previous_pipe = previous_pipe_reference.previous_pipe
-	position =previous_pipe_reference.get_local_player_pos()
+	previous_position = position
+	position = previous_pipe_reference.get_local_player_pos()
+	player_camera.move_camera(previous_position, position)
 	previous_pipe_reference.delete_single_pipe()
 	previous_pipe_reference = previous_previous_pipe
 	drill_visual.dig_direction(previous_animation_state)
 	## TODO set on pipe the direction so we can  go to it and change orientation
 	## of anim
 	#position -= current_direction * tile_size
+	
 	
 
 func _move_player():
@@ -153,10 +160,6 @@ func _move_player():
 		if current_direction == Vector2.RIGHT:
 			# inverted because MARC :ANGRY
 			(tuyau.pipe_visual as PipeVisual).spawn_left()
-		
-		position += current_direction * tile_size
-		previous_direction = current_direction
-		return
 	else:
 		if current_direction == Vector2.DOWN:
 			(tuyau.pipe_visual as PipeVisual).spawn_straight()
@@ -165,9 +168,11 @@ func _move_player():
 			(tuyau.pipe_visual as PipeVisual).spawn_straight()
 			tuyau.rotation = deg_to_rad(90)
 
-		position += current_direction * tile_size
-		previous_direction = current_direction
-		return
+	previous_position = position
+	position += current_direction * tile_size
+	player_camera.move_camera(previous_position, position)
+	previous_direction = current_direction
+	
 
 
 func set_direction(dir):
