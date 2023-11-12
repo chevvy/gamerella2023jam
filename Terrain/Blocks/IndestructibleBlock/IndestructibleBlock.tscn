@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://10gyh47ncgms"]
 
 [ext_resource type="Script" path="res://Terrain/Blocks/IndestructibleBlock/IndestructibleBlock.gd" id="1_pu6n4"]
-[ext_resource type="PackedScene" uid="uid://bdrtph82cn6uv" path="res://Terrain/base_block.tscn" id="1_sfdrp"]
+[ext_resource type="PackedScene" uid="uid://bdrtph82cn6uv" path="res://Terrain/Blocks/BaseBlock/base_block.tscn" id="1_sfdrp"]
 
 [sub_resource type="Gradient" id="Gradient_cy6t6"]
 colors = PackedColorArray(0.57548, 0.428222, 0.866581, 1, 0.121569, 0, 0.243137, 1)

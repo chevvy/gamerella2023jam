@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://frkiqbexqugg"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_wcbdu"]
-[ext_resource type="PackedScene" uid="uid://3bxyspovlwrb" path="res://Drill_Pipe/Pipe.tscn" id="2_p40ho"]
+[ext_resource type="PackedScene" path="res://Drill_Pipe/Pipe.tscn" id="2_p40ho"]
 [ext_resource type="PackedScene" uid="uid://voa04nymlp2s" path="res://Drill_Pipe/drill_visual.tscn" id="3_hd4yy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ieuv"]
