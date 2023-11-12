@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c68jkaciqhoax"]
+[gd_scene load_steps=10 format=3 uid="uid://c68jkaciqhoax"]
 
 [ext_resource type="Script" path="res://Terrain/Blocks/DestructibleBlock/rock_01/multi_rock.gd" id="1_thc8d"]
 [ext_resource type="Script" path="res://Terrain/Blocks/DestructibleBlock/DestructibleBlock.gd" id="2_nhysq"]
@@ -6,7 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://laltb10bcl5m" path="res://Rock/rock_02_B_visual.tscn" id="3_f2w4l"]
 [ext_resource type="PackedScene" uid="uid://bdrtph82cn6uv" path="res://Terrain/Blocks/BaseBlock/base_block.tscn" id="3_ia0ig"]
 [ext_resource type="PackedScene" uid="uid://74ilf7nnbs3d" path="res://Rock/rock_02_C_visual.tscn" id="4_eduvq"]
-[ext_resource type="PackedScene" path="res://Rock/rock_02_D_visual.tscn" id="5_6ycp1"]
+[ext_resource type="PackedScene" uid="uid://068gj52xircy" path="res://Rock/rock_02_D_visual.tscn" id="5_6ycp1"]
+[ext_resource type="PackedScene" uid="uid://bwe5j7n6kgwes" path="res://Drill_Pipe/hit_sfx.tscn" id="8_eb5r1"]
+[ext_resource type="PackedScene" uid="uid://bq60mqo2yki83" path="res://Drill_Pipe/explode_sfx.tscn" id="9_fq4ta"]
 
 [node name="Rock02" type="Node2D" node_paths=PackedStringArray("list_of_rocks", "destructible_rock")]
 script = ExtResource("1_thc8d")
@@ -22,16 +24,28 @@ rock_visual = NodePath("../Rock_Visual")
 health = 3
 enable_debug_visual = false
 
-[node name="Rock_Visual" parent="." instance=ExtResource("2_tvfrg")]
+[node name="Rock_Visual" parent="." node_paths=PackedStringArray("sfx_hit", "sfx_explode") instance=ExtResource("2_tvfrg")]
+sfx_hit = NodePath("../hit_sfx")
+sfx_explode = NodePath("../explode_sfx")
 
-[node name="Rock_Visual2" parent="." instance=ExtResource("3_f2w4l")]
+[node name="Rock_Visual2" parent="." node_paths=PackedStringArray("sfx_hit", "sfx_explode") instance=ExtResource("3_f2w4l")]
 visible = false
+sfx_hit = NodePath("../hit_sfx")
+sfx_explode = NodePath("../explode_sfx")
 
-[node name="Rock_Visual3" parent="." instance=ExtResource("4_eduvq")]
+[node name="Rock_Visual3" parent="." node_paths=PackedStringArray("sfx_hit", "sfx_explode") instance=ExtResource("4_eduvq")]
 visible = false
+sfx_hit = NodePath("../hit_sfx")
+sfx_explode = NodePath("../explode_sfx")
 
-[node name="Rock_Visual4" parent="." instance=ExtResource("5_6ycp1")]
+[node name="Rock_Visual4" parent="." node_paths=PackedStringArray("sfx_hit", "sfx_explode") instance=ExtResource("5_6ycp1")]
 visible = false
+sfx_hit = NodePath("../hit_sfx")
+sfx_explode = NodePath("../explode_sfx")
+
+[node name="hit_sfx" parent="." instance=ExtResource("8_eb5r1")]
+
+[node name="explode_sfx" parent="." instance=ExtResource("9_fq4ta")]
 
 [connection signal="onDestroy" from="DestructibleBlock" to="." method="_on_destructible_block_on_destroy"]
 [connection signal="hitReceived" from="BaseBlock" to="DestructibleBlock" method="_on_base_block_hit_received"]
