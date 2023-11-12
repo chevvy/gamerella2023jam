@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dhjo86pem3mpp"]
+[gd_scene load_steps=6 format=3 uid="uid://bwsc1vvl0dp4n"]
 
 [ext_resource type="Script" path="res://Rock/rock_visual.gd" id="1_qd6u0"]
 [ext_resource type="PackedScene" uid="uid://b5xq3gokp4uv4" path="res://VFX/vfx_rock_hit.tscn" id="2_4ekiv"]
