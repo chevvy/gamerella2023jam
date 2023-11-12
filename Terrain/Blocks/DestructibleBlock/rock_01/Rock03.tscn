@@ -19,7 +19,7 @@ base_block = NodePath("../BaseBlock")
 rock_visual = NodePath("../Rock_Visual")
 
 [node name="BaseBlock" parent="." instance=ExtResource("3_3i3pb")]
-health = 3
+health = 4
 enable_debug_visual = false
 
 [node name="Rock_Visual" parent="." instance=ExtResource("4_em7mb")]
