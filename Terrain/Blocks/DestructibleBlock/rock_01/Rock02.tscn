@@ -6,9 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://laltb10bcl5m" path="res://Rock/rock_02_B_visual.tscn" id="3_f2w4l"]
 [ext_resource type="PackedScene" uid="uid://bdrtph82cn6uv" path="res://Terrain/Blocks/BaseBlock/base_block.tscn" id="3_ia0ig"]
 [ext_resource type="PackedScene" uid="uid://74ilf7nnbs3d" path="res://Rock/rock_02_C_visual.tscn" id="4_eduvq"]
-[ext_resource type="PackedScene" path="res://Rock/rock_02_D_visual.tscn" id="5_6ycp1"]
-[ext_resource type="PackedScene" path="res://Drill_Pipe/hit_sfx.tscn" id="8_eb5r1"]
-[ext_resource type="PackedScene" path="res://Drill_Pipe/explode_sfx.tscn" id="9_fq4ta"]
+[ext_resource type="PackedScene" uid="uid://068gj52xircy" path="res://Rock/rock_02_D_visual.tscn" id="5_6ycp1"]
+[ext_resource type="PackedScene" uid="uid://bwe5j7n6kgwes" path="res://Drill_Pipe/hit_sfx.tscn" id="8_eb5r1"]
+[ext_resource type="PackedScene" uid="uid://bq60mqo2yki83" path="res://Drill_Pipe/explode_sfx.tscn" id="9_fq4ta"]
 [ext_resource type="PackedScene" uid="uid://caety7xdb1kxr" path="res://Terrain/Blocks/DestructibleBlock/destroy_timer.tscn" id="10_65wd8"]
 
 [node name="Rock02" type="Node2D" node_paths=PackedStringArray("list_of_rocks", "destructible_rock")]
@@ -48,6 +48,7 @@ sfx_explode = NodePath("../explode_sfx")
 [node name="hit_sfx" parent="." instance=ExtResource("8_eb5r1")]
 
 [node name="explode_sfx" parent="." instance=ExtResource("9_fq4ta")]
+volume_db = -15.0
 
 [node name="DestroyTimer" parent="." instance=ExtResource("10_65wd8")]
 
