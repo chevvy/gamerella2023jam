@@ -9,6 +9,9 @@ class_name Menu extends Node2D
 @onready var note_01 = $CanvasLayer/Page_02/Note_Origin/Note_01
 @onready var note_02 = $CanvasLayer/Page_03/Note_02_Origin/Note_02
 @onready var animator = $Animator
+@onready var audio = $AudioStreamPlayer
+@onready var click_sound = $Click
+
 
 var current_page = 1
 var skip_intro = false
@@ -50,6 +53,7 @@ func change_page(next_page):
 	
 	match next_page :
 		1 :
+			click_sound.playing = true
 			var twe = create_tween()
 			twe.tween_callback(page_01_hide)
 			twe.tween_interval(0.5)
@@ -57,14 +61,17 @@ func change_page(next_page):
 			current_page = 2
 			
 		2 :
+			click_sound.playing = true
 			var twe = create_tween()
 			twe.tween_callback(page_02_hide)
 			twe.tween_interval(0.5)
 			twe.tween_callback(page_03_show)
 			current_page = 3
 		3 :
+			click_sound.playing = true
 			var twe = create_tween()
 			twe.tween_callback(fade_out)
+			twe.tween_callback(page_03_hide)
 			twe.tween_interval(2)
 			twe.tween_callback(LevelManager.load_main)
 			current_page = 4
@@ -80,7 +87,7 @@ func fade_in():
 func fade_out():
 	var twe = create_tween()
 	fade.modulate = Color(0,0,0,0)
-	twe.tween_property(fade,"modulate",Color(0,0,0,1),3)
+	twe.tween_property(fade,"modulate",Color(0,0,0,1),1)
 
 func page_01_show():
 	var twe = create_tween()
@@ -89,6 +96,7 @@ func page_01_show():
 	drill.position = Vector2(0,-600)
 	title.position = Vector2(0,600)
 	page_01.show()
+	twe.set_parallel(false)
 	twe.set_parallel(true)
 	twe.tween_property(drill,"position",Vector2.ZERO,2).set_trans(Tween.TRANS_SPRING)
 	twe.tween_property(title,"position",Vector2.ZERO,2).set_trans(Tween.TRANS_SPRING)
@@ -102,6 +110,8 @@ func page_01_show():
 
 func page_01_hide():
 	var twe = create_tween()
+	twe.tween_property(page_01,"scale",Vector2(1.4,1.4),0.05)
+	twe.tween_property(page_01,"scale",Vector2(1,1),0.03)
 	twe.set_parallel(true)
 	twe.tween_property(drill,"position",Vector2(0,-600),1).set_trans(Tween.TRANS_SPRING)
 	twe.tween_property(title,"position",Vector2(0,600),1).set_trans(Tween.TRANS_SPRING)
@@ -118,6 +128,8 @@ func page_02_show():
 	
 func page_02_hide():
 	var twe_page = create_tween()
+	twe_page.tween_property(page_02,"scale",Vector2(1.4,1.4),0.05)
+	twe_page.tween_property(page_02,"scale",Vector2(1,1),0.03)
 	twe_page.tween_property(note_01,"position",Vector2(0,600),1).set_trans(Tween.TRANS_SPRING)
 	twe_page.tween_callback(page_02.hide)
 	pass
@@ -131,6 +143,10 @@ func page_03_show():
 	
 func page_03_hide():
 	var twe_page = create_tween()
+	twe_page.tween_property(audio,"volume_db",-80,3)
+	twe_page.tween_property(page_03,"scale",Vector2(1.4,1.4),0.05)
+	twe_page.tween_property(page_03,"scale",Vector2(1,1),0.03)
 	twe_page.tween_property(note_02,"position",Vector2(0,600),1).set_trans(Tween.TRANS_SPRING)
 	twe_page.tween_callback(page_03.hide)
+	
 	pass
