@@ -22,4 +22,8 @@ player_camera = NodePath("../Camera2D")
 autostart = true
 script = ExtResource("3_afodi")
 
+[node name="DamageCooldown" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
 [connection signal="timeout" from="HealthTimer" to="HealthTimer" method="_on_timeout"]

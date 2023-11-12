@@ -9,6 +9,7 @@ func load_menu():
 	
 func load_main():
 	get_tree().change_scene_to_file(main_path)
+	PlayerState.on_level_start()
 	
 func load_credit():
 	get_tree().change_scene_to_file(credit_path)

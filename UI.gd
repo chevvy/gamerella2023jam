@@ -1,4 +1,4 @@
-extends CanvasLayer
+class_name PlayerUI extends CanvasLayer
 
 
 @onready var fader = $Fader
@@ -24,8 +24,9 @@ func _ready() -> void:
 	hide_title()
 	twe.tween_interval(1)
 	twe.tween_callback(get_ready)
-	twe.tween_interval(3)
-	twe.tween_callback(time_out)
+	
+	#twe.tween_interval(3)
+	#twe.tween_callback(time_out)
 #	twe.tween_interval(3)
 #	twe.tween_callback(fade_out)
 	pass # Replace with function body.
@@ -77,8 +78,13 @@ func get_ready():
 	twe.tween_interval(1)
 	twe_text.tween_property(energy_title,"position",Vector2(45,72),0.2).set_trans(Tween.TRANS_SPRING)
 	twe_text.tween_property(depth_cont,"position",Vector2(0,0),0.2).set_trans(Tween.TRANS_SPRING)
+	twe.tween_callback(enable_player_move)
 	
 	pass
+	
+func enable_player_move():
+	PlayerState.set_can_player_move(true)
+	
 	
 func time_out():
 
