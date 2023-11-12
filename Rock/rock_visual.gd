@@ -35,7 +35,10 @@ func _ready() -> void:
 
 func destroy_feedback():
 	sfx_explode.play()
-	vfx_destroy.emitting = true
+	var vfx = vfx_destroy.instantiate()
+	get_tree().root.add_child(vfx)
+	vfx.position = self.global_position
+	vfx.emitting = true
 	pass
 
 
@@ -49,7 +52,8 @@ func hit_block_received(direction: float):
 
 func hit_feeback(_degree = null):
 	var vfx = vfx_hit.instantiate()
-	add_child(vfx)
+	get_tree().root.add_child(vfx)
+	vfx.position = self.global_position
 	vfx.emitting = true
 	if _degree == null :
 		tween_pos(0)
@@ -71,5 +75,5 @@ func tween_pos(_degree = null):
 	var twe = create_tween()
 #	var dir = angle
 	print()
-	twe.tween_property(sprite,"position",Vector2.from_angle(deg_to_rad(_degree))*40,0.2) 
-	twe.tween_property(sprite,"position",Vector2(0,0),0.2) 
+	twe.tween_property(sprite,"position",Vector2.from_angle(deg_to_rad(_degree))*randi_range(5,20),0.0) 
+	twe.tween_property(sprite,"position",Vector2(0,0),0.05) 

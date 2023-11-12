@@ -21,7 +21,7 @@ base_block = NodePath("../BaseBlock")
 rock_visual = NodePath("../Rock_Visual")
 
 [node name="BaseBlock" parent="." instance=ExtResource("3_hgi6g")]
-health = 5
+health = 4
 enable_debug_visual = false
 
 [node name="Rock_Visual" parent="." node_paths=PackedStringArray("sfx_hit", "sfx_explode") instance=ExtResource("4_15n25")]
