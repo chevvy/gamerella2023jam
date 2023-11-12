@@ -9,7 +9,7 @@ func _ready():
 
 
 
-func _on_base_block_hit_received(damageReceived, direction):
+func _on_base_block_hit_received(damageReceived, _direction):
 	base_block.remove_health(damageReceived)
 	
 	if base_block.health <= 0:

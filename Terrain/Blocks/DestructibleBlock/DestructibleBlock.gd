@@ -4,6 +4,8 @@ class_name DestructibleBlock extends Node2D
 @export var base_block: BaseBlock
 @export var rock_visual: RockVisual
 
+signal onDestroy
+
 var initial_health = 2
 var degreeByDirection = {
 	Vector2.RIGHT: 0,
@@ -18,7 +20,8 @@ func _on_base_block_hit_received(damageReceived: int, direction: Vector2):
 	
 	var hit_direction_in_degree = degreeByDirection[direction]
 	rock_visual.hit_feeback(hit_direction_in_degree)
-	rock_visual.add_crack(initial_health - base_block.health)
+	rock_visual.hit_rock()
 
 	if base_block.health <= 0:
+		onDestroy.emit()
 		queue_free()

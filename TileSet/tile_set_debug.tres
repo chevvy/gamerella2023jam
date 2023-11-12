@@ -1,11 +1,17 @@
-[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://ksbfd8ojkayv"]
+[gd_resource type="TileSet" load_steps=15 format=3 uid="uid://ksbfd8ojkayv"]
 
 [ext_resource type="Texture2D" uid="uid://c4prks228rn1x" path="res://TileSet/Tile_Set_Rock.png" id="1_1prsi"]
 [ext_resource type="PackedScene" uid="uid://bdrtph82cn6uv" path="res://Terrain/Blocks/BaseBlock/base_block.tscn" id="3_ichhk"]
+[ext_resource type="PackedScene" uid="uid://bighrhqoiqnx2" path="res://Terrain/Blocks/DestructibleBlock/rock_01/Rock04.tscn" id="3_qktja"]
 [ext_resource type="PackedScene" uid="uid://10gyh47ncgms" path="res://Terrain/Blocks/IndestructibleBlock/IndestructibleBlock.tscn" id="4_5wyi7"]
 [ext_resource type="PackedScene" uid="uid://cif2sd331mwy8" path="res://Terrain/Blocks/WinBlock/WinBlock.tscn" id="4_a5fll"]
+[ext_resource type="PackedScene" uid="uid://dj2lr8vf3ceby" path="res://Terrain/Blocks/DestructibleBlock/rock_01/Rock05.tscn" id="4_x24vr"]
 [ext_resource type="PackedScene" uid="uid://bywruw7mafha7" path="res://Terrain/Blocks/DirtBlock/DirtBlock.tscn" id="5_t0375"]
 [ext_resource type="PackedScene" uid="uid://b8cap205ptf1y" path="res://Terrain/Blocks/DestructibleBlock/DestructibleBlock.tscn" id="6_uiae5"]
+[ext_resource type="PackedScene" uid="uid://by4n8ewq147lt" path="res://Terrain/Blocks/EnergyBlock/EnergyBlock.tscn" id="7_6d4h8"]
+[ext_resource type="PackedScene" uid="uid://b53xki3s3sk1d" path="res://Terrain/Blocks/DestructibleBlock/rock_01/Rock01.tscn" id="8_khcly"]
+[ext_resource type="PackedScene" uid="uid://c68jkaciqhoax" path="res://Terrain/Blocks/DestructibleBlock/rock_01/Rock02.tscn" id="9_fitq2"]
+[ext_resource type="PackedScene" uid="uid://u7tg1xa7onho" path="res://Terrain/Blocks/DestructibleBlock/rock_01/Rock03.tscn" id="10_vy0n2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ajwuj"]
 texture = ExtResource("1_1prsi")
@@ -91,6 +97,12 @@ scenes/2/scene = ExtResource("4_a5fll")
 scenes/3/scene = ExtResource("4_5wyi7")
 scenes/4/scene = ExtResource("5_t0375")
 scenes/5/scene = ExtResource("6_uiae5")
+scenes/6/scene = ExtResource("7_6d4h8")
+scenes/7/scene = ExtResource("8_khcly")
+scenes/8/scene = ExtResource("9_fitq2")
+scenes/9/scene = ExtResource("10_vy0n2")
+scenes/11/scene = ExtResource("3_qktja")
+scenes/12/scene = ExtResource("4_x24vr")
 
 [resource]
 tile_size = Vector2i(48, 48)
