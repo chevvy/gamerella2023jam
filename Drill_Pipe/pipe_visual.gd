@@ -18,13 +18,22 @@ func _process(delta: float) -> void:
 	pass
 	
 func spawn_right():
+	pipe_anti.hide()
+	pipe_straight.hide()
+	
 	pipe_corner.show()
 	pass
 
 func spawn_left():
+	pipe_straight.hide()
+	pipe_corner.hide()
+	
 	pipe_anti.show()
 	pass
 
 func spawn_straight():
+	pipe_corner.hide()
+	pipe_anti.hide()
+	
 	pipe_straight.show()
 	pass

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://frkiqbexqugg"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_wcbdu"]
-[ext_resource type="PackedScene" uid="uid://db28i0alooile" path="res://debug/godot_sprite.tscn" id="2_cgo8g"]
+[ext_resource type="PackedScene" uid="uid://3bxyspovlwrb" path="res://Drill_Pipe/Pipe.tscn" id="2_p40ho"]
 [ext_resource type="PackedScene" uid="uid://voa04nymlp2s" path="res://Drill_Pipe/drill_visual.tscn" id="3_hd4yy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ieuv"]
@@ -9,18 +9,21 @@ size = Vector2(46, 46)
 
 [node name="Player" type="Area2D" node_paths=PackedStringArray("ray", "drill_visual")]
 script = ExtResource("1_wcbdu")
-ray = NodePath("RayCast2D")
+ray = NodePath("InFrontRayCast")
 drill_visual = NodePath("Drill_Visual")
+tuyau_scene = ExtResource("2_p40ho")
 metadata/_edit_group_ = true
-
-[node name="Sprite2D" parent="." instance=ExtResource("2_cgo8g")]
 
 [node name="AreaCollision" type="CollisionShape2D" parent="."]
 position = Vector2(24, 24)
 shape = SubResource("RectangleShape2D_1ieuv")
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
+[node name="InFrontRayCast" type="RayCast2D" parent="."]
 position = Vector2(24, 24)
 
 [node name="Drill_Visual" parent="." instance=ExtResource("3_hd4yy")]
 position = Vector2(24, 24)
+
+[node name="BackWardRayCast" type="RayCast2D" parent="."]
+position = Vector2(24, 24)
+rotation = 3.14159

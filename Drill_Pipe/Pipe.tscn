@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://3bxyspovlwrb"]
+
+[ext_resource type="Script" path="res://Drill_Pipe/Pipe.gd" id="1_dahwi"]
+[ext_resource type="PackedScene" uid="uid://bhypf3k31b84e" path="res://Drill_Pipe/pipe_visual.tscn" id="2_oq6x7"]
+
+[node name="Pipe" type="Node2D" node_paths=PackedStringArray("pipe_visual")]
+script = ExtResource("1_dahwi")
+pipe_visual = NodePath("Pipe_Visual")
+
+[node name="Pipe_Visual" parent="." instance=ExtResource("2_oq6x7")]
