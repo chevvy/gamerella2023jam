@@ -119,7 +119,7 @@ func _unhandled_input(event):
 		get_tree().quit()
 	
 	if event.is_action_pressed("dig"):
-		drill_visual.dig_direction("dig")
+		#drill_visual.dig_direction("dig")
 		_handle_dig_action()
 	
 	if event.is_action_pressed("go_back"):
@@ -161,8 +161,6 @@ func _undo_move():
 	
 
 func _move_player():
-	previous_animation_state.append(drill_visual.get_current_anim())
-	print(previous_animation_state)
 	# generate tunnel
 	var tuyau = tuyau_scene.instantiate()
 	if previous_pipe_reference != null:
@@ -174,6 +172,9 @@ func _move_player():
 	get_tree().root.add_child(tuyau)
 	tuyau.position = Vector2(global_position.x + 24, global_position.y + 24)
 	
+	#add current anim as previous anim
+	previous_animation_state.append(current_animation_state)
+	print(previous_animation_state)
 	
 	if current_direction != previous_direction:
 		if current_direction == Vector2.DOWN:  
@@ -185,8 +186,6 @@ func _move_player():
 				tuyau.rotation = (deg_to_rad(180))
 			if current_direction == Vector2.DOWN:
 				set_drill_body_direction(drill_move_state.down)
-			
-
 		if current_direction == Vector2.LEFT:
 			# inverted because MARC :ANGRY
 			(tuyau.pipe_visual as PipeVisual).spawn_right()
@@ -202,8 +201,7 @@ func _move_player():
 		if current_direction == Vector2.LEFT || current_direction == Vector2.RIGHT:
 			(tuyau.pipe_visual as PipeVisual).spawn_straight()
 			tuyau.rotation = deg_to_rad(90)
-		
-		
+			
 	# handling body direction when we turn direction
 	if current_direction == Vector2.LEFT:
 		set_drill_body_direction(drill_move_state.move_left)
