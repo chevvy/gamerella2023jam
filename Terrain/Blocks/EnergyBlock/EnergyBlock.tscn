@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://by4n8ewq147lt"]
+
+[ext_resource type="PackedScene" uid="uid://bdrtph82cn6uv" path="res://Terrain/Blocks/BaseBlock/base_block.tscn" id="1_hqs47"]
+[ext_resource type="Script" path="res://Terrain/Blocks/EnergyBlock/EnergyBlock.gd" id="1_xhfp6"]
+
+[sub_resource type="Gradient" id="Gradient_v88yl"]
+colors = PackedColorArray(0, 0.960773, 0, 1, 0.246634, 0.684832, 0.156774, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xdf28"]
+gradient = SubResource("Gradient_v88yl")
+width = 48
+height = 48
+
+[node name="EnergyBlock" type="Node2D"]
+script = ExtResource("1_xhfp6")
+
+[node name="BaseBlock" parent="." instance=ExtResource("1_hqs47")]
+enable_debug_visual = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_xdf28")
+
+[connection signal="hitReceived" from="BaseBlock" to="." method="_on_base_block_hit_received"]

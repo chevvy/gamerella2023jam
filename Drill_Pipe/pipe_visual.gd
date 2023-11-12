@@ -13,9 +13,6 @@ func _ready() -> void:
 	pipe_corner.hide()
 	pipe_straight.hide()
 	pass # Replace with function body.
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 	
 func spawn_right():
 	pipe_anti.hide()

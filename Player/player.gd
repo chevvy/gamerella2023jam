@@ -17,9 +17,10 @@ var screen_size # Size of the game window.
 # [x] - Attack + adjusted player set_direction
 # [] - move_to for smooth move baby
 # [x] - block de 1 a 4 de vie (jaune, gris ,bleu, rouge)
+# [x] - serpent
 # [] - camera movement
-# [] - serpent
-# [] - block d'energy + 1 de vie 
+# [x] - block d'energy + 1 de vie 
+# [] - Block clean final
 # [] - block de buff augmente de 5 dps
 # [] - block d'invicibilite
 # [] - block de gold (qui est son propre metric)
@@ -176,7 +177,5 @@ func set_direction(dir):
 	current_direction = inputs[dir]
 	var anim_direction = animByInput[dir]
 	drill_visual.dig_direction(anim_direction)
-	print("current_dir: " + dir)
-	print("previous dir: " + debug_keys[previous_direction])
 	
 	

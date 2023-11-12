@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://7gabbruw8yl"]
+[gd_scene load_steps=4 format=3 uid="uid://7gabbruw8yl"]
 
 [ext_resource type="PackedScene" uid="uid://frkiqbexqugg" path="res://Player/player.tscn" id="1_nw8ny"]
 [ext_resource type="PackedScene" uid="uid://dse1wyc8765hw" path="res://Terrain/terrain.tscn" id="2_6uawc"]
+[ext_resource type="Script" path="res://HealthTimer.gd" id="3_afodi"]
 
 [node name="Main" type="Node2D"]
 
@@ -12,3 +13,9 @@ position = Vector2(358, 241)
 
 [node name="Player" parent="." instance=ExtResource("1_nw8ny")]
 position = Vector2(216, 0)
+
+[node name="HealthTimer" type="Timer" parent="."]
+autostart = true
+script = ExtResource("3_afodi")
+
+[connection signal="timeout" from="HealthTimer" to="HealthTimer" method="_on_timeout"]
