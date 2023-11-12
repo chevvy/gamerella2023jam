@@ -84,7 +84,7 @@ enum drill_move_state {
 	left, right, down, up, move_right, move_left, move_dig_right, move_dig_left,
 }
 
-@export var is_debug = true
+@export var is_debug = false
 
 var animation_by_move_state = {
 	drill_move_state.move_left: "move_left" ,
