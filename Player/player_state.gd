@@ -47,7 +47,7 @@ func add_health(health_point: int) -> void:
 func on_heal(health_point: int):
 	can_be_damaged = false
 	update_health(health_point)
-	await create_tween().tween_interval(5).finished
+	await create_tween().tween_interval(3).finished
 	enable_damage()
 
 func update_health(new_health_value: int):

@@ -94,6 +94,7 @@ func _unhandled_input(event):
 		get_tree().quit()
 	
 	if event.is_action_pressed("dig"):
+		drill_visual.dig_direction("dig")
 		_handle_dig_action()
 	
 	if event.is_action_pressed("go_back"):
