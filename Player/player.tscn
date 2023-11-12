@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://frkiqbexqugg"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_wcbdu"]
-[ext_resource type="PackedScene" uid="uid://bhypf3k31b84e" path="res://Drill_Pipe/pipe_visual.tscn" id="2_q3x7x"]
+[ext_resource type="PackedScene" uid="uid://3bxyspovlwrb" path="res://Drill_Pipe/Pipe.tscn" id="2_p40ho"]
 [ext_resource type="PackedScene" uid="uid://voa04nymlp2s" path="res://Drill_Pipe/drill_visual.tscn" id="3_hd4yy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ieuv"]
@@ -11,7 +11,7 @@ size = Vector2(46, 46)
 script = ExtResource("1_wcbdu")
 ray = NodePath("InFrontRayCast")
 drill_visual = NodePath("Drill_Visual")
-tuyau_scene = ExtResource("2_q3x7x")
+tuyau_scene = ExtResource("2_p40ho")
 metadata/_edit_group_ = true
 
 [node name="AreaCollision" type="CollisionShape2D" parent="."]
