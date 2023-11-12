@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b53xki3s3sk1d"]
+[gd_scene load_steps=11 format=3 uid="uid://b53xki3s3sk1d"]
 
 [ext_resource type="Script" path="res://Terrain/Blocks/DestructibleBlock/rock_01/multi_rock.gd" id="1_7ei6k"]
 [ext_resource type="Script" path="res://Terrain/Blocks/DestructibleBlock/DestructibleBlock.gd" id="2_r1f5u"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bksfk0fscgs44" path="res://Rock/rock_01_B_visual.tscn" id="5_frnca"]
 [ext_resource type="PackedScene" uid="uid://dyrwglwphvkls" path="res://Rock/rock_01_C_visual.tscn" id="6_4wgl3"]
 [ext_resource type="PackedScene" uid="uid://dv4p8jsyk272b" path="res://Rock/rock_01_D_visual.tscn" id="7_x5p14"]
+[ext_resource type="PackedScene" uid="uid://caety7xdb1kxr" path="res://Terrain/Blocks/DestructibleBlock/destroy_timer.tscn" id="10_imcad"]
 
 [node name="Rock01" type="Node2D" node_paths=PackedStringArray("list_of_rocks", "destructible_rock")]
 script = ExtResource("1_7ei6k")
@@ -19,10 +20,11 @@ destructible_rock = NodePath("DestructibleBlock")
 
 [node name="hit_sfx" parent="." instance=ExtResource("3_fjf3t")]
 
-[node name="DestructibleBlock" type="Node2D" parent="." node_paths=PackedStringArray("base_block", "rock_visual")]
+[node name="DestructibleBlock" type="Node2D" parent="." node_paths=PackedStringArray("base_block", "rock_visual", "timer")]
 script = ExtResource("2_r1f5u")
 base_block = NodePath("../BaseBlock")
 rock_visual = NodePath("../Rock_Visual")
+timer = NodePath("../DestroyTimer")
 
 [node name="BaseBlock" parent="." instance=ExtResource("3_iw5qw")]
 enable_debug_visual = false
@@ -46,5 +48,8 @@ visible = false
 sfx_hit = NodePath("../hit_sfx")
 sfx_explode = NodePath("../explode_sfx")
 
+[node name="DestroyTimer" parent="." instance=ExtResource("10_imcad")]
+
 [connection signal="onDestroy" from="DestructibleBlock" to="." method="_on_destructible_block_on_destroy"]
 [connection signal="hitReceived" from="BaseBlock" to="DestructibleBlock" method="_on_base_block_hit_received"]
+[connection signal="timeout" from="DestroyTimer" to="DestructibleBlock" method="_on_destroy_timer_timeout"]

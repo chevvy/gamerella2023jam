@@ -1,18 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8cap205ptf1y"]
+[gd_scene load_steps=5 format=3 uid="uid://b8cap205ptf1y"]
 
 [ext_resource type="Script" path="res://Terrain/Blocks/DestructibleBlock/DestructibleBlock.gd" id="1_pb4df"]
 [ext_resource type="PackedScene" uid="uid://bdrtph82cn6uv" path="res://Terrain/Blocks/BaseBlock/base_block.tscn" id="2_ffd8g"]
 [ext_resource type="PackedScene" uid="uid://cijqcowmfd8ga" path="res://Rock/rock_visual.tscn" id="3_8i3rt"]
+[ext_resource type="PackedScene" uid="uid://caety7xdb1kxr" path="res://Terrain/Blocks/DestructibleBlock/destroy_timer.tscn" id="4_hjirj"]
 
-[node name="DestructibleBlock" type="Node2D" node_paths=PackedStringArray("base_block", "rock_visual")]
+[node name="DestructibleBlock" type="Node2D" node_paths=PackedStringArray("base_block", "rock_visual", "timer")]
 script = ExtResource("1_pb4df")
 base_block = NodePath("BaseBlock")
 rock_visual = NodePath("Rock_Visual")
+timer = NodePath("")
 
 [node name="BaseBlock" parent="." instance=ExtResource("2_ffd8g")]
 health = 2
 enable_debug_visual = false
 
 [node name="Rock_Visual" parent="." instance=ExtResource("3_8i3rt")]
+
+[node name="DestroyTimer" parent="." instance=ExtResource("4_hjirj")]
 
 [connection signal="hitReceived" from="BaseBlock" to="." method="_on_base_block_hit_received"]

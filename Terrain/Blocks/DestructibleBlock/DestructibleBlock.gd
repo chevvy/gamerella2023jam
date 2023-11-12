@@ -3,6 +3,7 @@ class_name DestructibleBlock extends Node2D
 
 @export var base_block: BaseBlock
 @export var rock_visual: RockVisual
+@export var timer: Timer
 
 signal onDestroy
 
@@ -22,5 +23,13 @@ func _on_base_block_hit_received(damageReceived: int, direction: Vector2):
 	rock_visual.hit_block_received(hit_direction_in_degree)
 
 	if base_block.health <= 0:
-		onDestroy.emit()
-		queue_free()
+		_start_destruction_process()
+
+func _start_destruction_process():
+	base_block.queue_free()
+	timer.start()
+
+func _on_destroy_timer_timeout():
+	onDestroy.emit()
+	queue_free()
+	pass # Replace with function body.
