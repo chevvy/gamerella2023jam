@@ -24,3 +24,6 @@ func move_dig_left():
 
 func move_dig_right():
 	drill_anim.play("move_dig_right")
+
+func get_current_anim():
+	return drill_anim.current_animation

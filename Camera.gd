@@ -7,6 +7,9 @@ var max_position = 260
 var is_in_downzone := false
 var is_in_upzone := false
 
+func _ready():
+	EventManager.onBlockHit.connect(camera_shake)
+
 func move_camera(current_player_position: Vector2, previous_player_position: Vector2):
 	if current_player_position.y <= 240:
 		return 
@@ -30,5 +33,5 @@ func move_camera_down():
 	
 func camera_shake():
 	var twe = create_tween()
-	twe.tween_property(self,"zoom",Vector2(randf_range(1.02,1.1),randf_range(1.02,1.1)),0.2)
-	twe.tween_property(self,"zoom",Vector2(1,1),0.1)
+	twe.tween_property(self,"zoom",Vector2(randf_range(1.02,1.07),randf_range(1.02,1.07)),0.07)
+	twe.tween_property(self,"zoom",Vector2(1,1),0.05)

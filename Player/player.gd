@@ -75,9 +75,34 @@ var previous_direction: Vector2 = Vector2.DOWN
 var previous_position = position
 
 var previous_pipe_reference = null
-var previous_animation_state = null
+var previous_animation_state: Array[String] = []
+var current_animation_state: String
 
 @export var player_camera: PlayerCamera
+
+enum drill_move_state {
+	left, right, down, up, move_right, move_left, move_dig_right, move_dig_left,
+}
+
+@export var is_debug = true
+
+var animation_by_move_state = {
+	drill_move_state.move_left: "move_left" ,
+	drill_move_state.move_right: "move_right",
+	drill_move_state.move_dig_left: "move_dig_left",
+	drill_move_state.move_dig_right: "move_dig_right",
+	drill_move_state.right: "dig_right",
+	drill_move_state.left: "dig_left",
+	drill_move_state.up: "dig_up",
+	drill_move_state.down: "dig_down"
+}
+
+var anim_state_by_vector = {
+	Vector2.RIGHT: drill_move_state.right,
+	Vector2.LEFT: drill_move_state.left,
+	Vector2.UP: drill_move_state.up,
+	Vector2.DOWN: drill_move_state.down,
+}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -87,7 +112,7 @@ func _ready():
 
 
 func _unhandled_input(event):
-	if not PlayerState.can_player_move():
+	if not PlayerState.can_player_move() and not is_debug:
 		return
  
 	if event.is_action_pressed("quit"):
@@ -115,7 +140,7 @@ func _handle_dig_action():
 		return
 
 	if col is BlockCollider:
-		col.receiveHit(damage, current_direction)
+		col.receiveHit(damage, current_direction) 
 
 		# if block is dead after attack, then we move to the place of block
 		if col.get_health() <= 0:
@@ -132,26 +157,24 @@ func _undo_move():
 	player_camera.move_camera(previous_position, position)
 	previous_pipe_reference.delete_single_pipe()
 	previous_pipe_reference = previous_previous_pipe
-	drill_visual.dig_direction(previous_animation_state)
-	## TODO set on pipe the direction so we can  go to it and change orientation
-	## of anim
-	#position -= current_direction * tile_size
-	
+	revert_to_latest_direction()
 	
 
 func _move_player():
+	previous_animation_state.append(drill_visual.get_current_anim())
+	print(previous_animation_state)
 	# generate tunnel
 	var tuyau = tuyau_scene.instantiate()
-	# TODO handle previous state altogheter ? animation direction included
 	if previous_pipe_reference != null:
 		tuyau.set_previous_pipe(previous_pipe_reference)
 		
 	tuyau.set_local_player_position(position)	
 	previous_pipe_reference = tuyau
-	previous_animation_state = animByVector[current_direction]
+
 	get_tree().root.add_child(tuyau)
 	tuyau.position = Vector2(global_position.x + 24, global_position.y + 24)
-
+	
+	
 	if current_direction != previous_direction:
 		if current_direction == Vector2.DOWN:  
 			if previous_direction == Vector2.LEFT:
@@ -160,6 +183,8 @@ func _move_player():
 			if previous_direction == Vector2.RIGHT:
 				(tuyau.pipe_visual as PipeVisual).spawn_left()
 				tuyau.rotation = (deg_to_rad(180))
+			if current_direction == Vector2.DOWN:
+				set_drill_body_direction(drill_move_state.down)
 			
 
 		if current_direction == Vector2.LEFT:
@@ -172,7 +197,7 @@ func _move_player():
 		if current_direction == Vector2.DOWN:
 			(tuyau.pipe_visual as PipeVisual).spawn_straight()
 			# we change the body direction straight
-			drill_visual.move_down()
+			set_drill_body_direction(drill_move_state.down)
 
 		if current_direction == Vector2.LEFT || current_direction == Vector2.RIGHT:
 			(tuyau.pipe_visual as PipeVisual).spawn_straight()
@@ -181,10 +206,11 @@ func _move_player():
 		
 	# handling body direction when we turn direction
 	if current_direction == Vector2.LEFT:
-		drill_visual.move_left()
+		set_drill_body_direction(drill_move_state.move_left)
 	
 	if current_direction == Vector2.RIGHT:
-		drill_visual.move_right()
+		set_drill_body_direction(drill_move_state.move_right)
+
 
 	previous_position = position
 	position += current_direction * tile_size
@@ -200,12 +226,24 @@ func set_direction(dir):
 	current_direction = inputs[dir]
 	var anim_direction = animByInput[dir]
 	if previous_direction == Vector2.LEFT:
-		drill_visual.move_dig_left()
+		set_drill_body_direction(drill_move_state.move_dig_left)
 		return
 	if previous_direction == Vector2.RIGHT:
-		drill_visual.move_dig_right()
+		set_drill_body_direction(drill_move_state.move_dig_right)
 		return
 	
-	drill_visual.dig_direction(anim_direction)
+	set_drill_body_direction(anim_state_by_vector[current_direction])   
 	
 	
+func set_drill_body_direction(anim_dir: drill_move_state):
+	if anim_dir == null:
+		return
+	var new_animation_state = animation_by_move_state[anim_dir]
+	current_animation_state = new_animation_state
+	drill_visual.dig_direction(new_animation_state)
+	
+func revert_to_latest_direction():
+	var latest_anim_state: String = previous_animation_state.pop_front()
+	print("setting anim: " + latest_anim_state)
+	print(previous_animation_state)
+	drill_visual.dig_direction(latest_anim_state)
