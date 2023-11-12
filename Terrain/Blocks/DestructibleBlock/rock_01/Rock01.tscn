@@ -17,7 +17,7 @@ list_of_rocks = [NodePath("Rock_Visual"), NodePath("Rock_Visual2"), NodePath("Ro
 destructible_rock = NodePath("DestructibleBlock")
 
 [node name="explode_sfx" parent="." instance=ExtResource("2_s0tag")]
-volume_db = -15.0
+volume_db = -20.0
 
 [node name="hit_sfx" parent="." instance=ExtResource("3_fjf3t")]
 
