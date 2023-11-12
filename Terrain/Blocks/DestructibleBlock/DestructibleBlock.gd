@@ -19,8 +19,7 @@ func _on_base_block_hit_received(damageReceived: int, direction: Vector2):
 	base_block.remove_health(damageReceived)
 	
 	var hit_direction_in_degree = degreeByDirection[direction]
-	rock_visual.hit_feeback(hit_direction_in_degree)
-	rock_visual.hit_rock()
+	rock_visual.hit_block_received(hit_direction_in_degree)
 
 	if base_block.health <= 0:
 		onDestroy.emit()

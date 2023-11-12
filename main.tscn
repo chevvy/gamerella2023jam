@@ -1,12 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://7gabbruw8yl"]
+[gd_scene load_steps=5 format=3 uid="uid://7gabbruw8yl"]
 
 [ext_resource type="Script" path="res://Camera.gd" id="1_4sty7"]
 [ext_resource type="PackedScene" uid="uid://frkiqbexqugg" path="res://Player/player.tscn" id="1_nw8ny"]
 [ext_resource type="PackedScene" uid="uid://dse1wyc8765hw" path="res://Terrain/terrain.tscn" id="2_6uawc"]
 [ext_resource type="Script" path="res://HealthTimer.gd" id="3_afodi"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gg8h3"]
-size = Vector2(1000, 40)
 
 [node name="Main" type="Node2D"]
 
@@ -14,20 +11,6 @@ size = Vector2(1000, 40)
 position = Vector2(358, 241)
 position_smoothing_enabled = true
 script = ExtResource("1_4sty7")
-
-[node name="PlayerDeadzoneUp" type="Area2D" parent="Camera2D"]
-position = Vector2(2.08165e-12, -20)
-
-[node name="DeadzoneCollision" type="CollisionShape2D" parent="Camera2D/PlayerDeadzoneUp"]
-shape = SubResource("RectangleShape2D_gg8h3")
-debug_color = Color(0.411765, 0.494118, 0.92549, 0.419608)
-
-[node name="PlayerDeadzoneDown" type="Area2D" parent="Camera2D"]
-position = Vector2(2.08165e-12, 20)
-
-[node name="DeadzoneCollision" type="CollisionShape2D" parent="Camera2D/PlayerDeadzoneDown"]
-shape = SubResource("RectangleShape2D_gg8h3")
-debug_color = Color(0.847059, 0.235294, 0.737255, 0.419608)
 
 [node name="Terrain" parent="." instance=ExtResource("2_6uawc")]
 
@@ -39,8 +22,4 @@ player_camera = NodePath("../Camera2D")
 autostart = true
 script = ExtResource("3_afodi")
 
-[connection signal="area_entered" from="Camera2D/PlayerDeadzoneUp" to="Camera2D" method="_on_player_deadzone_up_area_entered"]
-[connection signal="area_exited" from="Camera2D/PlayerDeadzoneUp" to="Camera2D" method="_on_player_deadzone_up_area_exited"]
-[connection signal="area_entered" from="Camera2D/PlayerDeadzoneDown" to="Camera2D" method="_on_player_deadzone_down_area_entered"]
-[connection signal="area_exited" from="Camera2D/PlayerDeadzoneDown" to="Camera2D" method="_on_player_deadzone_down_area_exited"]
 [connection signal="timeout" from="HealthTimer" to="HealthTimer" method="_on_timeout"]
