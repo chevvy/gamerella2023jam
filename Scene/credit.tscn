@@ -38,7 +38,6 @@ text = "REPLAY"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_wnhic")
-volume_db = -10.0
 autoplay = true
 
 [node name="GoBackToMenuTimer" type="Timer" parent="."]
