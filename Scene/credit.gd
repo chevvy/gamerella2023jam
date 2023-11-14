@@ -15,8 +15,7 @@ func _process(delta: float) -> void:
 		get_tree().quit()
 	
 	if Input.is_action_just_pressed("anything"):
-		get_tree().quit()
-		#LevelManager.load_menu()
+		LevelManager.load_main()
 	
 	
 		
