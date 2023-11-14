@@ -13,4 +13,6 @@ func load_main():
 	
 func load_credit():
 	get_tree().change_scene_to_file(credit_path)
+	PlayerState.clean_up_at_end_of_level()
+
 

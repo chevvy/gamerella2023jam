@@ -13,8 +13,16 @@ var has_timedout = false
 signal on_player_timeout_event
 	
 func on_level_start():
+	_health = 100
 	player_ui = UI_SCENE.instantiate()
 	add_child(player_ui)
+
+func clean_up_at_end_of_level():
+	if player_ui:
+		player_ui.queue_free()
+	_can_player_move = false
+	has_timedout = false
+	
 	
 func remove_health(damage: int) -> void:
 	if not can_be_damaged:
