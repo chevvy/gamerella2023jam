@@ -11,7 +11,7 @@
 [node name="Main" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(358, 241)
+position = Vector2(358, 370)
 position_smoothing_enabled = true
 script = ExtResource("1_4sty7")
 
@@ -29,12 +29,12 @@ one_shot = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_1mpnq")
-volume_db = -9.695
+volume_db = 5.0
 autoplay = true
 
 [node name="Ready" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_kqnlo")
-volume_db = -7.051
+volume_db = -5.0
 script = ExtResource("7_rdcyu")
 
 [node name="Terrain" parent="." instance=ExtResource("2_6uawc")]

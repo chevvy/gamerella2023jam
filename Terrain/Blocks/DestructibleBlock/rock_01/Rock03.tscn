@@ -48,7 +48,7 @@ sfx_explode = NodePath("../explode_sfx")
 [node name="hit_sfx" parent="." instance=ExtResource("8_6b0e1")]
 
 [node name="explode_sfx" parent="." instance=ExtResource("9_da31e")]
-volume_db = -20.0
+volume_db = -3.0
 
 [node name="DestroyTimer" parent="." instance=ExtResource("10_yjvy3")]
 

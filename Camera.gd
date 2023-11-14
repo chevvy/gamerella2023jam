@@ -33,5 +33,5 @@ func move_camera_down():
 	
 func camera_shake():
 	var twe = create_tween()
-	twe.tween_property(self,"zoom",Vector2(randf_range(1.01,1.065),randf_range(1.01,1.07)),0.03)
+	twe.tween_property(self,"zoom",Vector2(randf_range(1.01,1.065),randf_range(1.03,1.09)),0.03)
 	twe.tween_property(self,"zoom",Vector2(1,1),0.01)
