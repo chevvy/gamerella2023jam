@@ -41,5 +41,8 @@ stream = ExtResource("4_wnhic")
 volume_db = -10.0
 autoplay = true
 
+[node name="GoBackToMenuTimer" type="Timer" parent="."]
+wait_time = 10.0
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
