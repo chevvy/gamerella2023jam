@@ -38,7 +38,6 @@ scale_min = 4.0
 scale_max = 20.0
 scale_curve = SubResource("CurveTexture_0dvh4")
 color_ramp = SubResource("GradientTexture1D_4fo1d")
-turbulence_enabled = true
 turbulence_noise_strength = 20.0
 turbulence_noise_scale = 4.44
 turbulence_influence_max = 0.9
