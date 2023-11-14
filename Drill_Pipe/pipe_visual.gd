@@ -12,6 +12,7 @@ func _ready() -> void:
 	pipe_anti.hide()
 	pipe_corner.hide()
 	pipe_straight.hide()
+	modulate_color()
 	pass # Replace with function body.
 	
 func spawn_right():
@@ -34,3 +35,8 @@ func spawn_straight():
 	
 	pipe_straight.show()
 	pass
+
+func modulate_color():
+	var twe = create_tween()
+	self.modulate = Color(6,3,0.8)
+	twe.tween_property(self,"modulate",Color(1,1,1),0.5)

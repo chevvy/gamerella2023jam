@@ -45,7 +45,7 @@ func destroy_feedback():
 
 func hit_block_received(direction: float, should_destroy: bool = false):
 	# ICI MARC
-	sfx_hit.pitch_scale = randf_range(0.6,1.2)
+	sfx_hit.pitch_scale = randf_range(0.5,1.8)
 	sfx_hit.play()
 	hit_feeback(direction)
 	if should_destroy:
@@ -78,5 +78,9 @@ func hit_rock():
 
 func tween_pos(_degree = null):
 	var twe = create_tween()
-	twe.tween_property(sprite,"position",Vector2.from_angle(deg_to_rad(_degree))*randi_range(5,20),0.0) 
+	twe.tween_property(sprite,"position",Vector2.from_angle(deg_to_rad(_degree))*randi_range(10,30),0.0) 
+	twe.tween_property(sprite,"modulate",Color(4,1.5,0.6,1),0.00)
+	twe.tween_property(sprite,"scale",Vector2(1.2,1.2),0.00)
 	twe.tween_property(sprite,"position",Vector2(0,0),0.05) 
+	twe.tween_property(sprite,"scale",Vector2(1,1),0.05)
+	twe.tween_property(sprite,"modulate",Color(1,1,1,1),0.05)
