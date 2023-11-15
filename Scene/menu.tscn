@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://ciolx82srycfl"]
+[gd_scene load_steps=12 format=3 uid="uid://ciolx82srycfl"]
 
 [ext_resource type="Script" path="res://Scene/menu.gd" id="1_sivgq"]
 [ext_resource type="Texture2D" uid="uid://d2ttvvn0im15o" path="res://Menu/Title_BG.png" id="2_fambk"]
 [ext_resource type="Texture2D" uid="uid://bbwgfpoxgi50q" path="res://Menu/Title_02.png" id="3_3btxn"]
 [ext_resource type="Texture2D" uid="uid://c473jgh1xe1mb" path="res://Menu/Title_01.png" id="4_o8sdy"]
+[ext_resource type="Texture2D" uid="uid://bly0c0dx86wr8" path="res://Menu/Icon_Sprite.png" id="5_cfnh6"]
 [ext_resource type="Texture2D" uid="uid://dn8j8gkh6bo1x" path="res://Menu/Title_Note_01.png" id="5_ph415"]
 [ext_resource type="Texture2D" uid="uid://cyippe2w2714j" path="res://Menu/Title_Note_02.png" id="6_s5wpv"]
 [ext_resource type="AudioStream" uid="uid://q73b4qxwqhgr" path="res://Music/MENU_MUSIC.wav" id="7_36ug8"]
@@ -86,11 +87,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_right = 308.0
+offset_left = 2.0
+offset_right = 310.0
 offset_bottom = 165.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_o8sdy")
+
+[node name="IconSprite" type="Sprite2D" parent="CanvasLayer/Page_01/Origin_Title/Title"]
+position = Vector2(141, 260.5)
+texture = ExtResource("5_cfnh6")
 
 [node name="Page_02" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -108,10 +114,10 @@ grow_vertical = 2
 
 [node name="Note_Origin" type="Control" parent="CanvasLayer/Page_02"]
 anchors_preset = 0
-offset_left = -290.0
-offset_top = -170.0
-offset_right = -250.0
-offset_bottom = -130.0
+offset_left = -260.0
+offset_top = -150.0
+offset_right = -220.0
+offset_bottom = -110.0
 
 [node name="Note_01" type="TextureRect" parent="CanvasLayer/Page_02/Note_Origin"]
 layout_mode = 1
@@ -122,8 +128,8 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -20.0
 offset_top = -20.0
-offset_right = 600.0
-offset_bottom = 360.0
+offset_right = 559.0
+offset_bottom = 330.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_ph415")
@@ -144,10 +150,10 @@ grow_vertical = 2
 
 [node name="Note_02_Origin" type="Control" parent="CanvasLayer/Page_03"]
 anchors_preset = 0
-offset_left = -302.5
-offset_top = -176.5
-offset_right = -262.5
-offset_bottom = -136.5
+offset_left = -250.0
+offset_top = -140.0
+offset_right = -210.0
+offset_bottom = -100.0
 
 [node name="Note_02" type="TextureRect" parent="CanvasLayer/Page_03/Note_02_Origin"]
 layout_mode = 1
@@ -158,8 +164,8 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -20.0
 offset_top = -20.0
-offset_right = 625.0
-offset_bottom = 373.0
+offset_right = 525.0
+offset_bottom = 312.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_s5wpv")
