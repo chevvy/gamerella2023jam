@@ -76,12 +76,6 @@ func _ready():
 	PlayerState.on_player_timeout_event.connect(on_player_timeout)
 
 
-func on_player_timeout():
-	## todo delete pipe queue
-	#previous_pipe_reference.delete_whole_pipe_queue()
-	pass
-
-
 func _input(event):
 	if not PlayerState.can_player_move() and not is_debug:
 		return
@@ -238,7 +232,14 @@ func revert_to_latest_direction():
 	drill_visual.dig_direction(latest_anim_state)
 
 
-func _exit_tree() -> void:
+func on_player_timeout():
+	drill_visual_list.reverse()
 	for drill in drill_visual_list:
 		if drill != null:
-			drill.queue_free()
+			await delete_pipe_delayed(drill)
+	drill_visual_list.clear()
+
+
+func delete_pipe_delayed(drill):
+	await create_tween().tween_interval(0.1).finished
+	drill.queue_free()
