@@ -41,7 +41,7 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("anything"):
+	if Input.is_action_just_pressed("dig"):
 		skip_intro = true
 		change_page(current_page)
 
