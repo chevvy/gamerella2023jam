@@ -646,8 +646,11 @@ _data = {
 "move_right": SubResource("Animation_js1v2")
 }
 
-[node name="Drill_Visual" type="Node2D"]
+[node name="Drill_Visual" type="Node2D" node_paths=PackedStringArray("shrink_sfx", "move_sfx", "blocked_sfx")]
 script = ExtResource("2_hll10")
+shrink_sfx = NodePath("SFX_Shrink")
+move_sfx = NodePath("SFX_Move")
+blocked_sfx = NodePath("SFX_Blocked")
 
 [node name="Body_Sprite" type="Sprite2D" parent="."]
 position = Vector2(0, -5)

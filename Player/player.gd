@@ -107,6 +107,12 @@ func _handle_dig_action():
 
 	if col is BlockCollider:
 		apply_damage_to_block(col)
+		# if block is dead after attack, then we move to the place of block
+		if col.get_health() <= 0:
+			_move_player()
+		return
+
+	on_move_blocked()
 
 
 func get_collider_at_direction(dir: Vector2) -> Object:
@@ -124,14 +130,16 @@ func can_player_move_at_tile(collider: Object) -> bool:
 func apply_damage_to_block(block: BlockCollider):
 	block.receiveHit(damage, current_direction)
 
-	# if block is dead after attack, then we move to the place of block
-	if block.get_health() <= 0:
-		_move_player()
+
+func on_move_blocked():
+	drill_visual.play_blocked_sfx()
 
 
 func _undo_move():
 	if previous_pipe_reference == null:
 		return
+
+	drill_visual.play_shrink_sfx()
 
 	var previous_previous_pipe = previous_pipe_reference.previous_pipe
 	previous_position = position
