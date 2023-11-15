@@ -1,20 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://cbjflf5fq8nr7"]
+[gd_scene load_steps=2 format=3 uid="uid://cbjflf5fq8nr7"]
 
 [ext_resource type="Material" uid="uid://cdg45xbyhi1nn" path="res://VFX/vfx_rock_destroy.tres" id="1_wijs7"]
-[ext_resource type="Script" path="res://VFX/vfx_rock_destroy.gd" id="2_5air0"]
 
 [node name="VFX_Rock_Destroy" type="GPUParticles2D"]
-z_index = 3
+z_index = 4
 emitting = false
-amount = 80
+amount = 100
 process_material = ExtResource("1_wijs7")
 lifetime = 0.25
 one_shot = true
 explosiveness = 0.72
-script = ExtResource("2_5air0")
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
-autostart = true
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
