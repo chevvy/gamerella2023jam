@@ -17,19 +17,22 @@ class_name BaseBlock extends Area2D
 ## returns damage as int
 signal hitReceived(damageReceived: int, direction: Vector2)
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if enable_debug_visual:
 		debug_sprite.show()
 	else:
 		debug_sprite.hide()
-		
+
 	if not is_collision_enabled:
 		collision_shape.queue_free()
+
 
 func hitBlock(damageReceived: int, direction: Vector2 = Vector2.DOWN):
 	hitReceived.emit(damageReceived, direction)
 	EventManager.onBlockHit.emit()
+
 
 func remove_health(damage: int) -> void:
 	health -= damage
