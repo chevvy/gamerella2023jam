@@ -10,6 +10,8 @@ class_name Player extends Area2D
 
 @export var is_debug = false
 
+var drill_visual_list = []
+
 var screen_size  # Size of the game window.
 # the dept of the player (1 = 48px)
 var current_depth := 0
@@ -163,6 +165,7 @@ func _move_player():
 	get_tree().root.add_child(tuyau)
 	tuyau.position = Vector2(global_position.x + 24, global_position.y + 24)
 
+	drill_visual_list.append(tuyau)
 	#add current anim as previous anim
 	previous_animation_state.append(current_animation_state)
 
@@ -233,3 +236,9 @@ func set_drill_body_direction(anim_dir: DrillMoveState):
 func revert_to_latest_direction():
 	var latest_anim_state: String = previous_animation_state.pop_front()
 	drill_visual.dig_direction(latest_anim_state)
+
+
+func _exit_tree() -> void:
+	for drill in drill_visual_list:
+		if drill != null:
+			drill.queue_free()
