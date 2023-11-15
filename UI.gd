@@ -33,7 +33,7 @@ func update_bar(_value):
 	var twe_value = create_tween()
 	twe_color.tween_property(progress_bar, "modulate", Color(3, 3, 3, 1), 0.2)
 	twe_color.tween_property(progress_bar, "modulate", Color(1, 1, 1, 1), 0.2)
-	twe_value.tween_property(progress_bar, "value", _value, 2)
+	twe_value.tween_property(progress_bar, "value", _value, 1)
 	progress_bar.value = _value
 
 
