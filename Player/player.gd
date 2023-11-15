@@ -132,14 +132,14 @@ func apply_damage_to_block(block: BlockCollider):
 
 
 func on_move_blocked():
-	drill_visual.play_blocked_sfx()
+	drill_visual.blocked()
 
 
 func _undo_move():
 	if previous_pipe_reference == null:
 		return
 
-	drill_visual.play_shrink_sfx()
+	drill_visual.shrink()
 
 	var previous_previous_pipe = previous_pipe_reference.previous_pipe
 	previous_position = position

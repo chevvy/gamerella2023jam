@@ -18,39 +18,28 @@ func dig_direction(anim_name: String):
 
 func move_right():
 	drill_anim.play("move_right")
-	play_move_sfx()
 
 
 func move_left():
 	drill_anim.play("move_left")
-	play_move_sfx()
 
 
 func move_down():
 	drill_anim.play("dig_down")
-	play_move_sfx()
 
 
 func move_dig_left():
 	drill_anim.play("move_dig_left")
-	play_move_sfx()
 
 
 func move_dig_right():
 	drill_anim.play("move_dig_right")
-	play_move_sfx()
 
+func shrink():
+	drill_anim.play("shrink")
 
-func play_move_sfx():
-	move_sfx.play()
-
-
-func play_blocked_sfx():
-	blocked_sfx.play()
-
-
-func play_shrink_sfx():
-	shrink_sfx.play()
+func blocked():
+	drill_anim.play("blocked")
 
 
 func get_current_anim():
