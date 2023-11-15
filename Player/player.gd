@@ -10,27 +10,6 @@ class_name Player extends Area2D
 var screen_size # Size of the game window.
 # the dept of the player (1 = 48px)
 var current_depth := 0
-## TODO
-# liste des blocks: 
-# [x] - block finish line 
-# [x] - block indestructibles (mauve)
-# [x] - Attack + adjusted player set_direction
-# [x] - block de 1 a 4 de vie (jaune, gris ,bleu, rouge)
-# [x] - serpent
-# [x] - camera movement
-# [] - plug ui
-# [] - sound handling
-# [] - fix cant go over pipe de drill
-# [] - move_to for smooth move baby
-# [x] - block d'energy + 1 de vie 
-# [x] - Block clean final
-
-# [] - block de buff augmente de 5 dps
-# [] - block d'invicibilite
-# [] - block de gold (qui est son propre metric)
-# [] - block de dommage
-
-# timer/lifebar (-delta 1 de vie)
 
 
 var tile_size = 48
@@ -86,7 +65,7 @@ enum drill_move_state {
 
 @export var is_debug = false
 
-var animation_by_move_state = {
+var animation_by_move_states = {
 	drill_move_state.move_left: "move_left" ,
 	drill_move_state.move_right: "move_right",
 	drill_move_state.move_dig_left: "move_dig_left",
@@ -246,7 +225,7 @@ func set_direction(dir):
 func set_drill_body_direction(anim_dir: drill_move_state):
 	if anim_dir == null:
 		return
-	var new_animation_state = animation_by_move_state[anim_dir]
+	var new_animation_state = animation_by_move_states[anim_dir]
 	current_animation_state = new_animation_state
 	drill_visual.dig_direction(new_animation_state)
 	

@@ -1,4 +1,8 @@
 extends Node
+## Autoloaded class that will handle various player states
+##
+## Handles Health, player movement but also instantiate the UI (TODO)
+## This class is an autoload script that can be reached anywhere in the app
 
 
 var _health = 100
