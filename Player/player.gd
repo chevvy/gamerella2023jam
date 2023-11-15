@@ -88,7 +88,6 @@ func _input(event):
 		get_tree().quit()
 
 	if event.is_action_pressed("dig"):
-		#drill_visual.dig_direction("dig")
 		_handle_dig_action()
 
 	if event.is_action_pressed("go_back"):
@@ -101,19 +100,33 @@ func _input(event):
 
 
 func _handle_dig_action():
-	ray.target_position = current_direction * tile_size
-	ray.force_raycast_update()
-	var col = ray.get_collider()
-	if !ray.is_colliding() and not col is StaticBody2D:
+	var col = get_collider_at_direction(current_direction)
+	if can_player_move_at_tile(col):
 		_move_player()
 		return
 
 	if col is BlockCollider:
-		col.receiveHit(damage, current_direction)
+		apply_damage_to_block(col)
 
-		# if block is dead after attack, then we move to the place of block
-		if col.get_health() <= 0:
-			_move_player()
+
+func get_collider_at_direction(dir: Vector2) -> Object:
+	ray.target_position = dir * tile_size
+	ray.force_raycast_update()
+	return ray.get_collider()
+
+
+func can_player_move_at_tile(collider: Object) -> bool:
+	var is_tile_empty = !ray.is_colliding() and !(collider is StaticBody2D)
+	var is_tile_pipe = collider is PipeBody
+	return is_tile_empty and not is_tile_pipe
+
+
+func apply_damage_to_block(block: BlockCollider):
+	block.receiveHit(damage, current_direction)
+
+	# if block is dead after attack, then we move to the place of block
+	if block.get_health() <= 0:
+		_move_player()
 
 
 func _undo_move():

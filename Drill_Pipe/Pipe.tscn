@@ -1,10 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://3bxyspovlwrb"]
+[gd_scene load_steps=5 format=3 uid="uid://3bxyspovlwrb"]
 
 [ext_resource type="Script" path="res://Drill_Pipe/Pipe.gd" id="1_dahwi"]
 [ext_resource type="PackedScene" uid="uid://bhypf3k31b84e" path="res://Drill_Pipe/pipe_visual.tscn" id="2_oq6x7"]
+[ext_resource type="Script" path="res://Drill_Pipe/PipeBody.gd" id="3_lilke"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2nhu4"]
+size = Vector2(48, 48)
 
 [node name="Pipe" type="Node2D" node_paths=PackedStringArray("pipe_visual")]
 script = ExtResource("1_dahwi")
 pipe_visual = NodePath("Pipe_Visual")
 
 [node name="Pipe_Visual" parent="." instance=ExtResource("2_oq6x7")]
+
+[node name="PipeBody" type="StaticBody2D" parent="."]
+script = ExtResource("3_lilke")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PipeBody"]
+shape = SubResource("RectangleShape2D_2nhu4")
