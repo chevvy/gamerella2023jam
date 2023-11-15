@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Drill_Pipe/pipe_visual.gd" id="1_y11cp"]
 [ext_resource type="Texture2D" uid="uid://dbary0lqehoar" path="res://Drill_Pipe/Drill_Pipe_Sprite.png" id="2_3e1sw"]
 
-[node name="Pipe_Visual" type="Node2D"]
+[node name="Pipe_Visual" type="Node2D" groups=["pipe"]]
 position = Vector2(2.08165e-12, 2.08165e-12)
 script = ExtResource("1_y11cp")
 
