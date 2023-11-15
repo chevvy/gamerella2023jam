@@ -14,6 +14,7 @@ var has_timedout = false
 var _health = 100
 var _can_player_move = false
 
+
 func on_level_start():
 	_health = 100
 	player_ui = ui_scene.instantiate()
