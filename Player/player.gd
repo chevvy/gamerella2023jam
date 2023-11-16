@@ -239,6 +239,10 @@ func on_player_timeout():
 			await delete_pipe_delayed(drill)
 	drill_visual_list.clear()
 
+func _exit_tree() -> void:
+	for drill in drill_visual_list:
+		if drill != null:
+			drill.queue_free()
 
 func delete_pipe_delayed(drill):
 	await create_tween().tween_interval(0.1).finished
