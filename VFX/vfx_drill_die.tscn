@@ -1,4 +1,4 @@
-[gd_resource type="ParticleProcessMaterial" load_steps=7 format=3 uid="uid://cdg45xbyhi1nn"]
+[gd_scene load_steps=6 format=3 uid="uid://cf21ixw8ngkpg"]
 
 [sub_resource type="Gradient" id="Gradient_fd6fi"]
 offsets = PackedFloat32Array(0, 0.103704, 0.214815, 1)
@@ -6,13 +6,6 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 0, 1, 1, 0.490196, 0.180392, 1, 0.09
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_4fo1d"]
 gradient = SubResource("Gradient_fd6fi")
-
-[sub_resource type="Curve" id="Curve_rb35n"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0]
-point_count = 1
-
-[sub_resource type="CurveTexture" id="CurveTexture_nf0du"]
-curve = SubResource("Curve_rb35n")
 
 [sub_resource type="Curve" id="Curve_3uda3"]
 max_value = 1.5
@@ -22,17 +15,16 @@ point_count = 12
 [sub_resource type="CurveTexture" id="CurveTexture_0dvh4"]
 curve = SubResource("Curve_3uda3")
 
-[resource]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wlf5j"]
 lifetime_randomness = 1.0
 emission_shape = 3
 emission_box_extents = Vector3(24, 24, 1)
 particle_flag_disable_z = true
 spread = 180.0
 gravity = Vector3(0, 0, 0)
+initial_velocity_max = 800.0
 orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
-radial_accel_max = 20.0
-radial_accel_curve = SubResource("CurveTexture_nf0du")
 scale_min = 4.0
 scale_max = 20.0
 scale_curve = SubResource("CurveTexture_0dvh4")
@@ -40,3 +32,13 @@ color_ramp = SubResource("GradientTexture1D_4fo1d")
 turbulence_noise_strength = 20.0
 turbulence_noise_scale = 4.44
 turbulence_influence_max = 0.9
+
+[node name="VFX_Drill_Destroy" type="GPUParticles2D"]
+z_index = 4
+emitting = false
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_wlf5j")
+lifetime = 0.3
+one_shot = true
+explosiveness = 0.72
+randomness = 1.0

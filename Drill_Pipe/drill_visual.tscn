@@ -1,10 +1,12 @@
-[gd_scene load_steps=19 format=3 uid="uid://voa04nymlp2s"]
+[gd_scene load_steps=22 format=3 uid="uid://voa04nymlp2s"]
 
 [ext_resource type="Texture2D" uid="uid://dbary0lqehoar" path="res://Drill_Pipe/Drill_Pipe_Sprite.png" id="1_fwbfb"]
 [ext_resource type="Script" path="res://Drill_Pipe/drill_visual.gd" id="2_hll10"]
 [ext_resource type="AudioStream" uid="uid://bxeaq52wvkht8" path="res://Drill_Pipe/move_drill.wav" id="3_ny4x8"]
 [ext_resource type="AudioStream" uid="uid://ck5hah47q7lmr" path="res://Drill_Pipe/shrink.wav" id="4_82kcm"]
 [ext_resource type="AudioStream" uid="uid://wb77jatm2202" path="res://Drill_Pipe/block.wav" id="5_2pgvu"]
+[ext_resource type="PackedScene" uid="uid://cf21ixw8ngkpg" path="res://VFX/vfx_drill_die.tscn" id="6_b687j"]
+[ext_resource type="AudioStream" uid="uid://dbow0gv7vkm7m" path="res://Drill_Pipe/destroy.wav" id="6_r0u5t"]
 
 [sub_resource type="Animation" id="Animation_fb5r2"]
 length = 0.001
@@ -78,7 +80,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1.4)]
+"values": [Vector2(1, 1)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -139,6 +141,54 @@ tracks/10/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../VFX_Drill_Destroy:emitting")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("../Body_Sprite:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath(".:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("../SFX_Destroy_Intro:playing")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_vtyf1"]
@@ -241,10 +291,10 @@ tracks/1/path = NodePath("../Body_Sprite:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.0333333, 0.133333),
+"times": PackedFloat32Array(0.0666667, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1.2, 1.8), Vector2(1, 1)]
+"values": [Vector2(1, 1), Vector2(1.2, 2.2), Vector2(1, 1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -277,10 +327,10 @@ tracks/4/path = NodePath("../Body_Sprite:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.0333333, 0.133333),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0.0666667, 0.1, 0.166667, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1.2, 1.2, 0.9, 1), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 1), Color(1.8, 1.4, 0.8, 1), Color(6, 0.2, 0, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_bgo4x"]
@@ -641,6 +691,18 @@ tracks/5/keys = {
 "update": 0,
 "values": [1.5708]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../SFX_Move:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_hpi25"]
 resource_name = "move_dig_right"
@@ -717,6 +779,18 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [4.71239]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../SFX_Move:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_bftr3"]
@@ -982,10 +1056,123 @@ tracks/8/keys = {
 "values": [true, false]
 }
 
+[sub_resource type="Animation" id="Animation_k5nej"]
+resource_name = "die"
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../VFX_Drill_Destroy:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Body_Sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Body_Sprite:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.0666667, 0.166667, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.4, 1.4), Vector2(1.2, 1.2)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Body_Sprite:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.0666667, 0.166667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(3, 0.5, 0, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.133333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.4, 1.4), Vector2(1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(3, 0.5, 0, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../SFX_Destroy:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../SFX_Destroy_Intro:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_53iyi"]
 _data = {
 "RESET": SubResource("Animation_fb5r2"),
 "blocked": SubResource("Animation_vtyf1"),
+"die": SubResource("Animation_k5nej"),
 "dig": SubResource("Animation_n0yau"),
 "dig_down": SubResource("Animation_bgo4x"),
 "dig_left": SubResource("Animation_fukac"),
@@ -1003,7 +1190,6 @@ script = ExtResource("2_hll10")
 
 [node name="Body_Sprite" type="Sprite2D" parent="."]
 position = Vector2(0, -5)
-scale = Vector2(1, 1.4)
 texture = ExtResource("1_fwbfb")
 hframes = 5
 vframes = 3
@@ -1024,9 +1210,22 @@ libraries = {
 
 [node name="SFX_Move" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_ny4x8")
+volume_db = 4.0
 
 [node name="SFX_Shrink" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_82kcm")
 
 [node name="SFX_Blocked" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_2pgvu")
+
+[node name="SFX_Destroy_Intro" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_82kcm")
+volume_db = 6.0
+pitch_scale = 0.1
+
+[node name="SFX_Destroy" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_r0u5t")
+volume_db = 8.0
+pitch_scale = 0.2
+
+[node name="VFX_Drill_Destroy" parent="." instance=ExtResource("6_b687j")]

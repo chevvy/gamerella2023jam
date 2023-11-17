@@ -3,6 +3,7 @@ class_name PipeVisual extends Node2D
 @onready var pipe_straight = $Pipe_Straight_Sprite
 @onready var pipe_anti = $Pipe_Anti_Corner_Sprite
 @onready var pipe_corner = $Pipe_Corner_Sprite
+@onready var sfx_explode = $SFX_Explode
 
 
 # Called when the node enters the scene tree for the first time.
@@ -13,6 +14,7 @@ func _ready() -> void:
 	pipe_corner.hide()
 	pipe_straight.hide()
 	modulate_color()
+	sfx_explode.pitch_scale = randf_range(0.4,2)
 	pass  # Replace with function body.
 
 

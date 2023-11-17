@@ -44,18 +44,18 @@ font_size = 66
 outline_size = 20
 outline_color = Color(0.435294, 0.8, 0, 1)
 
+[sub_resource type="Gradient" id="Gradient_050am"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_podlt"]
+gradient = SubResource("Gradient_050am")
+
 [sub_resource type="LabelSettings" id="LabelSettings_mr5hc"]
 line_spacing = 20.0
 font = ExtResource("2_x42fi")
 font_size = 66
 outline_size = 20
 outline_color = Color(1, 0.352941, 0.407843, 1)
-
-[sub_resource type="Gradient" id="Gradient_050am"]
-colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_podlt"]
-gradient = SubResource("Gradient_050am")
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_eogos")
@@ -149,6 +149,15 @@ label_settings = SubResource("LabelSettings_5304n")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Fader" type="TextureRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_podlt")
+
 [node name="Time_Out" type="Label" parent="."]
 offset_left = 110.0
 offset_top = 151.0
@@ -170,12 +179,3 @@ text = "- WELL DONE -"
 label_settings = SubResource("LabelSettings_mr5hc")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Fader" type="TextureRect" parent="."]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("GradientTexture1D_podlt")
