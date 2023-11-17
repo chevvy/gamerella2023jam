@@ -99,12 +99,15 @@ func time_out():
 	
 	time_out_title.show()
 	well_done_title.show()
-	
-	twe.tween_property(time_out_title,"position",Vector2(110,151),0.5).set_trans(Tween.TRANS_SPRING)
-	twe_02.tween_property(well_done_title,"position",Vector2(60,250),0.5).set_trans(Tween.TRANS_SPRING)
-	twe.tween_interval(3)
+
 	twe.tween_callback(fade_out)
-	
+	twe.tween_property(time_out_title, "position", Vector2(110, 151), 0.5).set_trans(
+		Tween.TRANS_SPRING
+	)
+	twe_02.tween_property(well_done_title, "position", Vector2(60, 250), 0.5).set_trans(
+		Tween.TRANS_SPRING
+	)
+
 	twe_loop.tween_interval(0.9)
 	twe_loop.tween_property(time_out_title,"modulate",Color(1,1,1,0),0.01)
 	twe_loop.tween_interval(0.3)
@@ -127,8 +130,10 @@ func fade_in():
 func fade_out():
 	var twe = create_tween()
 	fader.show()
-	fader.modulate = Color(0,0,0,0)
-	twe.tween_property(fader,"modulate", Color(0,0,0,1),1)
+
+	fader.modulate = Color(0, 0, 0, 0)
+	twe.tween_property(fader, "modulate", Color(0, 0, 0, 1), 2)
+
 	pass
 	
 func hide_title():
