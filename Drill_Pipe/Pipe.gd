@@ -29,3 +29,6 @@ func set_local_player_position(pos: Vector2):
 
 func get_local_player_pos() -> Vector2:
 	return local_player_position
+
+func trigger_destroy():
+	pipe_visual.die()

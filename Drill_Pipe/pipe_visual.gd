@@ -5,6 +5,8 @@ class_name PipeVisual extends Node2D
 @onready var pipe_corner = $Pipe_Corner_Sprite
 @onready var sfx_explode = $SFX_Explode
 
+@export var pipe_anim: AnimationPlayer
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -46,3 +48,8 @@ func modulate_color():
 	var twe = create_tween()
 	self.modulate = Color(6, 3, 0.8)
 	twe.tween_property(self, "modulate", Color(1, 1, 1), 0.5)
+
+
+func die():
+	print("pipe visual die played")
+	pipe_anim.play("die")

@@ -236,16 +236,18 @@ func on_player_timeout():
 	drill_visual.die() # trigger die anim on player
 
 	drill_visual_list.reverse()
-	for drill in drill_visual_list:
-		if drill != null:
-			await delete_pipe_delayed(drill)
+	for pipe in drill_visual_list:
+		if pipe != null:
+			await delete_pipe_delayed(pipe)
 	drill_visual_list.clear()
 
 func _exit_tree() -> void:
-	for drill in drill_visual_list:
-		if drill != null:
-			drill.queue_free()
+	for pipe in drill_visual_list:
+		if pipe != null:
+			pipe.queue_free()
 
-func delete_pipe_delayed(drill):
-	await create_tween().tween_interval(0.1).finished
-	drill.queue_free()
+func delete_pipe_delayed(pipe):
+	await create_tween().tween_interval(0.8).finished
+	if pipe is Pipe:
+		pipe.trigger_destroy()
+	pipe.queue_free()
