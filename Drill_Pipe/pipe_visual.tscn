@@ -246,23 +246,27 @@ _data = {
 "die": SubResource("Animation_1lq12")
 }
 
-[node name="Pipe_Visual" type="Node2D" groups=["pipe"]]
+[node name="Pipe_Visual" type="Node2D" node_paths=PackedStringArray("pipe_anim") groups=["pipe"]]
 position = Vector2(2.08165e-12, 2.08165e-12)
 script = ExtResource("1_y11cp")
+pipe_anim = NodePath("AnimationPlayer")
 
 [node name="Pipe_Straight_Sprite" type="Sprite2D" parent="."]
+scale = Vector2(1.2, 1.2)
 texture = ExtResource("2_3e1sw")
 hframes = 5
 vframes = 3
 frame = 5
 
 [node name="Pipe_Anti_Corner_Sprite" type="Sprite2D" parent="."]
+scale = Vector2(1.2, 1.2)
 texture = ExtResource("2_3e1sw")
 hframes = 5
 vframes = 3
 frame = 10
 
 [node name="Pipe_Corner_Sprite" type="Sprite2D" parent="."]
+scale = Vector2(1.2, 1.2)
 texture = ExtResource("2_3e1sw")
 flip_h = true
 hframes = 5

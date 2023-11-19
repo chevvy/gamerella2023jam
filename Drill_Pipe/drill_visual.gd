@@ -42,5 +42,8 @@ func blocked():
 	drill_anim.play("blocked")
 
 
+func die():
+	drill_anim.play("die")
+
 func get_current_anim():
 	return drill_anim.current_animation
