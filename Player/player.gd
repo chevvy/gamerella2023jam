@@ -247,7 +247,7 @@ func _exit_tree() -> void:
 			pipe.queue_free()
 
 func delete_pipe_delayed(pipe):
-	await create_tween().tween_interval(0.8).finished
 	if pipe is Pipe:
 		pipe.trigger_destroy()
+	await create_tween().tween_interval(0.33).finished
 	pipe.queue_free()

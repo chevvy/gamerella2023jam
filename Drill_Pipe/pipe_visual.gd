@@ -51,5 +51,4 @@ func modulate_color():
 
 
 func die():
-	print("pipe visual die played")
 	pipe_anim.play("die")
