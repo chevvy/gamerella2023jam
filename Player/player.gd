@@ -233,6 +233,8 @@ func revert_to_latest_direction():
 
 
 func on_player_timeout():
+	drill_visual.die() # trigger die anim on player
+
 	drill_visual_list.reverse()
 	for drill in drill_visual_list:
 		if drill != null:

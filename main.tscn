@@ -18,7 +18,6 @@ script = ExtResource("1_4sty7")
 [node name="Player" parent="." node_paths=PackedStringArray("player_camera") instance=ExtResource("1_nw8ny")]
 position = Vector2(312, 240)
 player_camera = NodePath("../Camera2D")
-is_debug = true
 
 [node name="HealthTimer" type="Timer" parent="."]
 autostart = true
